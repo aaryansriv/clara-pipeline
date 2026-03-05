@@ -1,0 +1,200 @@
+S
+Speaker 1
+00:02
+All right, let's bring Marcus in. Three, two, one. And he's here.
+S
+Speaker 2
+00:08
+Hey, Marcus, welcome. Thanks for joining us. I'm Nick from Clara AI.
+S
+Speaker 3
+00:14
+Hey, Nick. Hey, thanks for having me. I appreciate you guys making the time.
+S
+Speaker 2
+00:18
+Absolutely. So I've got Bharat here with me who's going to walk you through what we do. He's our solutions expert. Over to you, Bharat.
+S
+Speaker 1
+00:26
+Hey, Marcus. Good to meet you. Before I get into it, tell me a little about your business. What kind of work does Apex Fire Protection do?
+S
+Speaker 3
+00:35
+Yeah, so we're a full-service fire protection company out of Houston, Texas. We do fire suppression systems, sprinkler installation, alarm monitoring, extinguisher service, and inspections. Pretty much anything fire protection related.
+S
+Speaker 1
+00:52
+That's a wide range. How big is your team?
+S
+Speaker 3
+00:55
+We've got about 12 field technicians, a dispatcher named Janet, and then myself. Janet handles all the incoming calls and dispatching during the day. I step in when she's not available or for escalated matters.
+S
+Speaker 1
+01:10
+So Janet is your first line for calls?
+S
+Speaker 3
+01:13
+Exactly. She's our dispatcher. Takes the calls, figures out what's going on, and gets the right tech out there. When she's not available, calls come to me.
+S
+Speaker 1
+01:22
+Makes sense. And what are your business hours?
+S
+Speaker 3
+01:25
+We're Monday through Friday. Officially 8 to 6, but honestly the guys are usually out by 7:30. We don't do weekends unless it's an emergency.
+S
+Speaker 1
+01:36
+Got it. And emergencies — how do you define those? What makes you roll out after hours?
+S
+Speaker 3
+01:42
+Good question. For us, an emergency is an active sprinkler discharge, a fire alarm that's been triggered, a CO alarm going off, or any active life safety event. Those are the ones where we drop everything and go.
+S
+Speaker 1
+01:58
+That's very clear. A lot of companies are vague about that. Do you have an on-call rotation for after-hours emergencies?
+S
+Speaker 3
+02:06
+Janet takes the first call. If she can't handle it, it comes to me. We also have Dave as a backup coordinator, but honestly the numbers haven't been set up for a formal rotation yet.
+S
+Speaker 1
+02:18
+So you'd need a routing chain — Janet first, then you, then Dave.
+S
+Speaker 3
+02:23
+That's the idea, yeah. We just haven't formalized it with actual phone numbers for the routing.
+S
+Speaker 1
+02:30
+Perfect. And what software are you using for job management?
+S
+Speaker 3
+02:33
+ServiceTrade. Love it. But there are some things you need to know about how we use it. We never want sprinkler jobs created automatically. Those require human approval because of the complexity and liability. Same thing with suppression work. Someone needs to look at the details before it goes into the system.
+S
+Speaker 1
+02:52
+That's a great constraint to know. Never auto-create sprinkler or suppression jobs in ServiceTrade. Got it. Any other rules?
+S
+Speaker 3
+02:59
+Not that I can think of right now. We'll probably have more once we dig into the details on the onboarding call.
+S
+Speaker 1
+03:05
+Absolutely. So let me show you what Clara can do. I'm going to flash a number on your screen, and you can call in and pretend to be a customer with a fire protection need. See how the system handles it.
+S
+Speaker 3
+03:18
+Sounds good. Let me grab my phone.
+S
+Speaker 4
+03:35
+Thank you for calling Apex Fire Protection, this is Clara. How can I help you today?
+S
+Speaker 3
+03:40
+Hi, I've got a sprinkler head that's leaking in my warehouse. It's not a full discharge, but it's dripping pretty steadily.
+S
+Speaker 4
+03:48
+I understand. A leaking sprinkler head can definitely cause damage if not addressed quickly. Let me get your information so we can get a technician out to assess the situation. May I have your name and the best phone number to reach you?
+S
+Speaker 3
+04:01
+Yeah, my name is Tom Henderson. Phone is 713-555-0188.
+S
+Speaker 4
+04:08
+Thank you, Tom. Just to confirm, that's 713-555-0188, correct?
+S
+Speaker 3
+04:13
+That's right.
+S
+Speaker 4
+04:15
+And what's the address of the warehouse where the sprinkler is leaking?
+S
+Speaker 3
+04:19
+It's 4420 Industrial Boulevard, Houston.
+S
+Speaker 4
+04:24
+Got it. 4420 Industrial Boulevard, Houston. And just to clarify, is this an active emergency situation, or is the leak manageable for now?
+S
+Speaker 3
+04:33
+It's manageable. It's just a steady drip. But I'd like someone out here today if possible.
+S
+Speaker 4
+04:39
+Understood. I'll get this information to our dispatch team right away. Someone will reach out to you shortly to schedule a visit. Is there anything else I can help you with?
+S
+Speaker 3
+04:48
+No, that's great. Thanks.
+S
+Speaker 4
+04:51
+Thank you for calling Apex Fire Protection, Tom. We'll have someone reach out to you soon. Have a great day.
+S
+Speaker 3
+04:58
+Thanks, bye.
+S
+Speaker 1
+05:02
+That was great. What did you think?
+S
+Speaker 3
+05:05
+I'm impressed. It handled the triage well. Figured out it wasn't a true emergency but still prioritized it. And it collected exactly what we'd need — name, number, address, and the issue. That's spot on.
+S
+Speaker 1
+05:18
+And that's with a generic demo agent. Once we configure it specifically for Apex, we can train it on your exact definitions, your routing rules, your ServiceTrade constraints — everything.
+S
+Speaker 3
+05:29
+Yeah, I could see this being really valuable, especially after hours. Janet can't be on call 24/7 and frankly neither can I. Having Clara handle the initial screening and routing would take a huge load off.
+S
+Speaker 1
+05:42
+That's exactly the use case. So the next steps would be, after you decide to move forward, we do an onboarding call where we nail down all the specifics — Janet's number, your number, Dave's number, exact routing order, timeouts, ServiceTrade rules, the whole nine yards.
+S
+Speaker 3
+05:58
+Sounds good. I'm definitely interested. What's the pricing look like?
+S
+Speaker 1
+06:02
+We have a starter plan at 249 a month which gives you 500 minutes. For a company your size, that should cover your inbound call volume easily.
+S
+Speaker 3
+06:12
+That's reasonable. Let's do it. I'll need to get Janet's and Dave's contact info ready for the onboarding call though.
+S
+Speaker 1
+06:19
+Perfect. We'll schedule the onboarding call and you can bring all of that. We'll also need your office address and any other special routing rules you think of.
+S
+Speaker 3
+06:28
+Great. Looking forward to it.
+S
+Speaker 1
+06:30
+Same here, Marcus. We'll have the paperwork sent over today. Welcome aboard.
+S
+Speaker 3
+06:35
+Thanks, guys. Appreciate it.

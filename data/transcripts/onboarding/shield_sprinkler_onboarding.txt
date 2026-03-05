@@ -1,0 +1,120 @@
+S
+Speaker 1
+00:02
+Hey Donna, welcome back. Pawan here. Ready to get Shield Sprinkler configured.
+S
+Speaker 3
+00:08
+Hey Pawan. Ready to go.
+S
+Speaker 2
+00:10
+Great. Let me run through the details. Business hours — you said Monday to Friday, 8 to 5, Mountain Standard Time, no DST. Still correct?
+S
+Speaker 3
+00:19
+Yep, that's right. Arizona time, no daylight saving.
+S
+Speaker 2
+00:23
+Perfect. And your office address?
+S
+Speaker 3
+00:26
+3344 North 7th Street, Phoenix, Arizona, 85014.
+S
+Speaker 2
+00:33
+Got it. Now routing. Tyler is first on-call. What's his number?
+S
+Speaker 3
+00:37
+Tyler is 602-555-0133.
+S
+Speaker 2
+00:42
+And your number?
+S
+Speaker 3
+00:44
+602-555-0177.
+S
+Speaker 2
+00:47
+Great. And you mentioned there's no fallback after you and Tyler. Have you thought about that?
+S
+Speaker 3
+00:53
+Actually yes. I've brought James on as a field coordinator. He can be the third in the chain. His number is 602-555-0191.
+S
+Speaker 2
+01:03
+Excellent. So the chain is Tyler at 602-555-0133, then you at 602-555-0177, then James at 602-555-0191. That solves the gap. What about transfer timeout?
+S
+Speaker 3
+01:16
+30 seconds. If someone doesn't pick up in 30 seconds, move on. We can't leave callers hanging.
+S
+Speaker 2
+01:23
+30 seconds per person. And if all three miss it?
+S
+Speaker 3
+01:27
+Tell the caller that we've been paged and someone will call back within 10 minutes. No exceptions — we always call back.
+S
+Speaker 2
+01:35
+Perfect. Now let's refine emergency definitions. You said active sprinkler discharge and major panel fault on the demo. Anything to update?
+S
+Speaker 3
+01:44
+Let me be more specific. Emergencies are: active water discharge from any sprinkler component, system alarm with a fault code, and fire panel going completely offline. Those three.
+S
+Speaker 2
+01:58
+What about panel battery low? Is that an emergency?
+S
+Speaker 3
+02:02
+No. Panel battery low is not an emergency. That can wait until the next business day. Good question though.
+S
+Speaker 2
+02:09
+Noted. Panel battery low is explicitly NOT an emergency. Now ServiceTrade — backflow testing no auto-create. Anything else?
+S
+Speaker 3
+02:17
+Yes. We sometimes get calls from Desert Fire Systems. They're not a customer — they're another sprinkler company that we partner with. When they call, Clara should recognize them as an internal caller and transfer directly to me. Don't run them through the customer flow.
+S
+Speaker 2
+02:34
+Got it. Desert Fire Systems calls get transferred directly to you. They're a partner, not a customer. Any pricing Clara should know about?
+S
+Speaker 3
+02:43
+No quotes over phone. We assess on-site first.
+S
+Speaker 2
+02:47
+And notifications?
+S
+Speaker 3
+02:49
+Office@shieldsprinkler.com. That's our main office inbox.
+S
+Speaker 2
+02:54
+Perfect. I'll get this all configured and send you the test number today. Can we reconnect Friday morning for review?
+S
+Speaker 3
+03:00
+Friday morning works. 9 AM?
+S
+Speaker 2
+03:03
+Done. Thanks Donna.
+S
+Speaker 3
+03:05
+Thanks Pawan. Talk soon.

@@ -1,0 +1,70 @@
+{
+  "account_id": "bens-electric-solutions",
+  "company_name": "Ben's Electric Solutions",
+  "owner_name": "Ben",
+  "business_hours": {
+    "days": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday"
+    ],
+    "start": "8:00 AM",
+    "end": "4:30 PM",
+    "timezone": null
+  },
+  "office_address": null,
+  "services_supported": [
+    "outlet replacements",
+    "aluminum wiring mitigation",
+    "EV chargers",
+    "hot tub hookups",
+    "panel changes",
+    "service maintenance"
+  ],
+  "emergency_definition": [
+    "emergency calls for regular property managers and general contractors"
+  ],
+  "emergency_routing_rules": [
+    {
+      "name": "Shelley from GNM Pressure Washing",
+      "phone": null,
+      "order": 1,
+      "fallback": "Ben"
+    }
+  ],
+  "non_emergency_routing_rules": null,
+  "call_transfer_rules": {
+    "timeout_seconds": null,
+    "retries": null,
+    "message_if_fails": null
+  },
+  "integration_constraints": [
+    "Uses Jobber CRM"
+  ],
+  "after_hours_flow_summary": "Forward calls from GNM Pressure Washing to Ben",
+  "office_hours_flow_summary": "Answer calls, forward to Ben if necessary",
+  "pricing_info": {
+    "service_call_fee": "$115",
+    "hourly_rate": "$98",
+    "billing_increment": "half hour increments",
+    "disclose_on_request_only": true,
+    "notes": null
+  },
+  "notification_channels": {
+    "email": "info@benselectricsolutionsteam.com",
+    "sms": "403-975-1773",
+    "webhook": null
+  },
+  "questions_or_unknowns": [
+    "How to handle emergency calls after hours for other clients",
+    "How to integrate with existing phone system",
+    "How to configure AI to ask questions on how to handle certain calls",
+    "How to handle emergency calls after hours"
+  ],
+  "notes": "Demo call to discuss AI-powered virtual receptionist for electrical contracting business",
+  "version": "v2",
+  "created_at": "2026-03-05T19:48:10.163396",
+  "updated_at": "2026-03-05T19:49:13.202057"
+}

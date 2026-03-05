@@ -1,0 +1,121 @@
+{
+  "account_id": "blazeguard-alarms",
+  "company_name": "BlazeGuard Alarms",
+  "date": "2026-03-05T19:49:50.517391",
+  "version_from": "v1",
+  "version_to": "v2",
+  "changes": [
+    {
+      "field": "non_emergency_routing_rules",
+      "old_value": "routine calls can wait until morning",
+      "new_value": "routine calls can wait until morning, Milwaukee after-hours goes to email at milwaukee@blazeguardalarms.com"
+    },
+    {
+      "field": "office_address",
+      "old_value": "4200 North Harlem Avenue, Chicago",
+      "new_value": "2211 West Fulton Street, Chicago; 890 North Plankinton Avenue, Milwaukee"
+    },
+    {
+      "field": "pricing_info",
+      "old_value": null,
+      "new_value": {
+        "service_call_fee": null,
+        "hourly_rate": null,
+        "billing_increment": null,
+        "disclose_on_request_only": true,
+        "notes": null
+      }
+    },
+    {
+      "field": "call_transfer_rules.retries",
+      "old_value": null,
+      "new_value": 3
+    },
+    {
+      "field": "call_transfer_rules.message_if_fails",
+      "old_value": null,
+      "new_value": "our team has been paged and someone will call back within 15 minutes. If it's an active fire, please call 911."
+    },
+    {
+      "field": "call_transfer_rules.timeout_seconds",
+      "old_value": null,
+      "new_value": 40
+    },
+    {
+      "field": "questions_or_unknowns",
+      "old_value": [
+        "Kim's phone number",
+        "Pete's phone number",
+        "specific routing rules for Chicago and Milwaukee",
+        "how to handle monitoring calls in ServiceTrade"
+      ],
+      "new_value": [
+        "how to handle monitoring calls in ServiceTrade",
+        "Kim's phone number",
+        "Pete's phone number",
+        "specific routing rules for Chicago and Milwaukee",
+        "Milwaukee ServiceTrade setup"
+      ]
+    },
+    {
+      "field": "notification_channels",
+      "old_value": null,
+      "new_value": {
+        "email": "alerts@blazeguardalarms.com",
+        "sms": null,
+        "webhook": null
+      }
+    },
+    {
+      "field": "emergency_routing_rules",
+      "old_value": [
+        {
+          "name": "Kim",
+          "phone": null,
+          "order": 1,
+          "fallback": "escalates to Ray"
+        },
+        {
+          "name": "Pete",
+          "phone": null,
+          "order": 1,
+          "fallback": "escalates to Ray"
+        },
+        {
+          "name": "Ray",
+          "phone": "312-555-0166",
+          "order": 2,
+          "fallback": null
+        }
+      ],
+      "new_value": [
+        {
+          "name": "Kim",
+          "phone": "312-555-0144",
+          "order": 1,
+          "fallback": "escalates to Derek"
+        },
+        {
+          "name": "Derek",
+          "phone": "312-555-0155",
+          "order": 2,
+          "fallback": "escalates to Ray"
+        },
+        {
+          "name": "Ray",
+          "phone": "312-555-0166",
+          "order": 3,
+          "fallback": null
+        }
+      ]
+    }
+  ],
+  "outstanding_items": [
+    "how to handle monitoring calls in ServiceTrade",
+    "Kim's phone number",
+    "Pete's phone number",
+    "specific routing rules for Chicago and Milwaukee",
+    "Milwaukee ServiceTrade setup"
+  ],
+  "llm_notes": "Updated office addresses, emergency routing rules, non-emergency routing rules, call transfer rules, and notification channels. Added pricing policy and post-call notification email."
+}

@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clara Pipeline — Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --surface: #13131a;
+    --surface2: #1c1c26;
+    --border: #2a2a3a;
+    --accent: #6c63ff;
+    --accent2: #ff6584;
+    --green: #00d4aa;
+    --yellow: #ffd166;
+    --text: #e8e8f0;
+    --muted: #7070a0;
+    --mono: 'Space Mono', monospace;
+    --sans: 'DM Sans', sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Grid background */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(108,99,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(108,99,255,0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
+
+  /* Header */
+  header {
+    padding: 32px 0 24px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 40px;
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .logo-icon {
+    width: 40px; height: 40px;
+    background: var(--accent);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+  }
+
+  .logo h1 {
+    font-family: var(--mono);
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+  }
+
+  .logo span {
+    display: block;
+    font-size: 11px;
+    color: var(--muted);
+    font-family: var(--sans);
+    font-weight: 400;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+
+  .header-stats {
+    display: flex;
+    gap: 24px;
+  }
+
+  .stat {
+    text-align: right;
+  }
+
+  .stat-value {
+    font-family: var(--mono);
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--accent);
+  }
+
+  .stat-label {
+    font-size: 11px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  /* Tabs */
+  .tabs {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 32px;
+    background: var(--surface);
+    padding: 4px;
+    border-radius: 10px;
+    width: fit-content;
+    border: 1px solid var(--border);
+  }
+
+  .tab {
+    padding: 8px 20px;
+    border-radius: 7px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: var(--muted);
+    border: none;
+    background: none;
+    font-family: var(--sans);
+  }
+
+  .tab.active {
+    background: var(--accent);
+    color: white;
+  }
+
+  .tab:hover:not(.active) {
+    color: var(--text);
+    background: var(--surface2);
+  }
+
+  /* Tab panels */
+  .panel { display: none; }
+  .panel.active { display: block; }
+
+  /* Account cards grid */
+  .accounts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+  }
+
+  .account-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px;
+    cursor: pointer;
+    transition: all 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .account-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+
+  .account-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(108,99,255,0.15);
+  }
+
+  .account-card:hover::before { opacity: 1; }
+
+  .card-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 16px;
+  }
+
+  .company-name {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+
+  .account-id {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+  }
+
+  .version-badge {
+    display: flex;
+    gap: 6px;
+  }
+
+  .badge {
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    font-family: var(--mono);
+    letter-spacing: 0.5px;
+  }
+
+  .badge.v1 { background: rgba(108,99,255,0.15); color: var(--accent); border: 1px solid rgba(108,99,255,0.3); }
+  .badge.v2 { background: rgba(0,212,170,0.15); color: var(--green); border: 1px solid rgba(0,212,170,0.3); }
+  .badge.pending { background: rgba(255,209,102,0.15); color: var(--yellow); border: 1px solid rgba(255,209,102,0.3); }
+
+  .card-meta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+  }
+
+  .meta-item label {
+    display: block;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
+
+  .meta-item value {
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  .unknowns-count {
+    color: var(--yellow);
+  }
+
+  .unknowns-count.zero {
+    color: var(--green);
+  }
+
+  /* Diff viewer */
+  .diff-container {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+  }
+
+  .diff-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--border);
+    background: var(--surface2);
+  }
+
+  .diff-title {
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+  .diff-subtitle {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+
+  .diff-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .diff-col {
+    padding: 24px;
+  }
+
+  .diff-col:first-child {
+    border-right: 1px solid var(--border);
+  }
+
+  .diff-col-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  .diff-field {
+    margin-bottom: 16px;
+    padding: 12px;
+    border-radius: 8px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+  }
+
+  .diff-field.changed {
+    border-color: rgba(255,209,102,0.4);
+    background: rgba(255,209,102,0.03);
+  }
+
+  .diff-field.added {
+    border-color: rgba(0,212,170,0.4);
+    background: rgba(0,212,170,0.03);
+  }
+
+  .field-name {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .field-value {
+    font-size: 13px;
+    line-height: 1.5;
+    word-break: break-word;
+  }
+
+  .field-value.null-value {
+    color: var(--muted);
+    font-style: italic;
+  }
+
+  .field-value.changed-value {
+    color: var(--yellow);
+  }
+
+  .field-value.new-value {
+    color: var(--green);
+  }
+
+  /* Agent prompt viewer */
+  .prompt-viewer {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+  }
+
+  .prompt-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    background: var(--surface2);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .prompt-tabs {
+    display: flex;
+    gap: 4px;
+  }
+
+  .prompt-tab {
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 12px;
+    cursor: pointer;
+    border: none;
+    background: none;
+    color: var(--muted);
+    font-family: var(--sans);
+    transition: all 0.2s;
+  }
+
+  .prompt-tab.active {
+    background: var(--accent);
+    color: white;
+  }
+
+  .copy-btn {
+    padding: 6px 14px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text);
+    font-size: 12px;
+    cursor: pointer;
+    font-family: var(--sans);
+    transition: all 0.2s;
+  }
+
+  .copy-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .prompt-content {
+    padding: 24px;
+    font-family: var(--mono);
+    font-size: 12px;
+    line-height: 1.7;
+    white-space: pre-wrap;
+    max-height: 500px;
+    overflow-y: auto;
+    color: #c8c8e8;
+  }
+
+  .prompt-content::-webkit-scrollbar { width: 6px; }
+  .prompt-content::-webkit-scrollbar-track { background: var(--surface2); }
+  .prompt-content::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+  /* Account selector */
+  .account-selector {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+  }
+
+  .account-pill {
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    cursor: pointer;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--muted);
+    transition: all 0.2s;
+    font-family: var(--sans);
+  }
+
+  .account-pill.active, .account-pill:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: rgba(108,99,255,0.08);
+  }
+
+  /* Unknowns panel */
+  .unknowns-panel {
+    background: var(--surface);
+    border: 1px solid rgba(255,209,102,0.2);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-bottom: 20px;
+  }
+
+  .unknowns-panel h4 {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--yellow);
+    margin-bottom: 12px;
+  }
+
+  .unknown-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 13px;
+    margin-bottom: 8px;
+    color: var(--muted);
+  }
+
+  .unknown-item::before {
+    content: '⚠';
+    color: var(--yellow);
+    flex-shrink: 0;
+  }
+
+  /* Changelog list */
+  .changelog-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .changelog-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 20px;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .changelog-icon {
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+
+  .changelog-icon.update { background: rgba(255,209,102,0.15); }
+  .changelog-icon.add { background: rgba(0,212,170,0.15); }
+
+  .changelog-body { flex: 1; }
+
+  .changelog-field {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--accent);
+    margin-bottom: 6px;
+  }
+
+  .changelog-values {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .old-val {
+    font-size: 12px;
+    color: var(--muted);
+    background: var(--bg);
+    padding: 3px 8px;
+    border-radius: 4px;
+    text-decoration: line-through;
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .arrow { color: var(--muted); font-size: 12px; }
+
+  .new-val {
+    font-size: 12px;
+    color: var(--green);
+    background: rgba(0,212,170,0.08);
+    padding: 3px 8px;
+    border-radius: 4px;
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  /* Empty state */
+  .empty-state {
+    text-align: center;
+    padding: 60px 24px;
+    color: var(--muted);
+  }
+
+  .empty-state .icon { font-size: 40px; margin-bottom: 16px; }
+  .empty-state p { font-size: 14px; line-height: 1.6; }
+
+  /* Footer */
+  footer {
+    margin-top: 60px;
+    padding: 24px 0;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  footer span {
+    font-size: 12px;
+    color: var(--muted);
+    font-family: var(--mono);
+  }
+
+  .status-dot {
+    display: inline-block;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--green);
+    margin-right: 6px;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  /* Animations */
+  .fade-in {
+    animation: fadeIn 0.3s ease;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 768px) {
+    .diff-columns { grid-template-columns: 1fr; }
+    .diff-col:first-child { border-right: none; border-bottom: 1px solid var(--border); }
+    .accounts-grid { grid-template-columns: 1fr; }
+    .header-stats { gap: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <div class="header-inner">
+      <div class="logo">
+        <div class="logo-icon">🤖</div>
+        <div>
+          <h1>Clara Pipeline</h1>
+          <span>Agent Configuration Dashboard</span>
+        </div>
+      </div>
+      <div class="header-stats">
+        <div class="stat">
+          <div class="stat-value" id="total-accounts">5</div>
+          <div class="stat-label">Accounts</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value" id="v2-count">5</div>
+          <div class="stat-label">v2 Ready</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value" id="total-unknowns">4</div>
+          <div class="stat-label">Open Items</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('overview')">Overview</button>
+    <button class="tab" onclick="switchTab('diff')">v1 → v2 Diff</button>
+    <button class="tab" onclick="switchTab('prompts')">Agent Prompts</button>
+    <button class="tab" onclick="switchTab('changelog')">Changelog</button>
+  </div>
+
+  <!-- Overview Panel -->
+  <div id="panel-overview" class="panel active">
+    <div class="accounts-grid" id="accounts-grid"></div>
+  </div>
+
+  <!-- Diff Panel -->
+  <div id="panel-diff" class="panel">
+    <div class="account-selector" id="diff-account-selector"></div>
+    <div id="diff-content"></div>
+  </div>
+
+  <!-- Prompts Panel -->
+  <div id="panel-prompts" class="panel">
+    <div class="account-selector" id="prompt-account-selector"></div>
+    <div id="prompt-content"></div>
+  </div>
+
+  <!-- Changelog Panel -->
+  <div id="panel-changelog" class="panel">
+    <div id="changelog-content"></div>
+  </div>
+
+  <footer>
+    <span><span class="status-dot"></span>Pipeline running — Groq LLaMA 3.3 70B</span>
+    <span>Clara Pipeline v1.0 · Zero-cost stack</span>
+  </footer>
+</div>
+
+<script>
+// ─── DATA ───────────────────────────────────────────────────────────────────
+const ACCOUNTS = [
+  {
+    id: "bens-electric-solutions",
+    name: "Ben's Electric Solutions",
+    owner: "Ben Penoyer",
+    location: "Calgary, AB, Canada",
+    type: "Electrical Contractor",
+    hasV2: true,
+    v1: {
+      business_hours: { days: ["Monday","Tuesday","Wednesday","Thursday","Friday"], start: "8:00 AM", end: "4:30 PM", timezone: null },
+      services: ["Outlet replacement", "EV chargers", "Panel changes", "Hot tub hookups", "Renovations", "Tenant improvements", "Troubleshooting"],
+      emergency_routing: [],
+      emergency_definition: ["Gas station power failure (GNM Pressure Washing clients only)"],
+      integration: "Jobber (integration in progress)",
+      unknowns: ["Timezone not confirmed", "Transfer phone number (second number pending)", "After-hours transfer timeout", "Commercial rate not mentioned"],
+      notes: "Demo call. Ben handles all calls himself. Only on-call for 1 property manager (GNM). Jobber integration pending."
+    },
+    v2: {
+      business_hours: { days: ["Monday","Tuesday","Wednesday","Thursday","Friday"], start: "8:00 AM", end: "4:30 PM", timezone: "MST (Calgary)" },
+      services: ["Outlet replacement", "EV chargers", "Panel changes", "Hot tub hookups", "Renovations", "Tenant improvements", "Troubleshooting", "Commercial electrical"],
+      emergency_routing: [{ name: "Ben Penoyer (Owner)", phone: "Pending - second number", order: 1, fallback: "Collect details, follow up next business day" }],
+      emergency_definition: ["Gas station power failure - GNM Pressure Washing clients only (Chevron/Esso properties)"],
+      integration: "Jobber (in progress) + Notification: info@benselectricsolutionsteam.com",
+      pricing: "$115 call-out fee · $98/hr residential · Billed in 30-min increments · Only disclose if asked",
+      unknowns: ["Transfer phone number (Ben's second number not yet active)", "Commercial hourly rate not confirmed"],
+      notes: "Onboarding call complete. Business hours confirmed. Pricing confirmed. Emergency routing limited to GNM client calls. Transfer number pending activation."
+    },
+    changelog: [
+      { field: "business_hours.timezone", old: null, new: "MST (Calgary, Canada)" },
+      { field: "pricing_info.service_call_fee", old: null, new: "$115 call-out fee" },
+      { field: "pricing_info.hourly_rate", old: null, new: "$98/hr residential" },
+      { field: "pricing_info.billing_increment", old: null, new: "30-minute increments ($49/half-hr)" },
+      { field: "pricing_info.disclose_on_request_only", old: null, new: "true" },
+      { field: "emergency_routing_rules", old: "[]", new: "[Ben Penoyer → pending second number]" },
+      { field: "emergency_definition", old: "vague", new: "GNM Pressure Washing gas stations (Chevron/Esso) only" },
+      { field: "notification_channels.email", old: null, new: "info@benselectricsolutionsteam.com" },
+      { field: "after_hours_flow_summary", old: null, new: "GNM emergencies → patch to Ben. All others → next business day." },
+    ]
+  },
+  {
+    id: "apex-fire-protection",
+    name: "Apex Fire Protection",
+    owner: "Marcus Reyes",
+    location: "Houston, TX (CST)",
+    type: "Fire Protection",
+    hasV2: true,
+    v1: {
+      business_hours: { days: ["Monday","Tuesday","Wednesday","Thursday","Friday"], start: "8:00 AM", end: "6:00 PM", timezone: "CST" },
+      services: ["Fire suppression", "Sprinkler installation", "Alarm monitoring", "Extinguisher service", "Inspections"],
+      emergency_routing: [{ name: "Janet (Dispatcher)", phone: null, order: 1 }, { name: "Marcus Reyes (Owner)", phone: null, order: 2 }],
+      emergency_definition: ["Active sprinkler discharge", "Fire alarm triggered", "CO alarm", "Active life safety event"],
+      integration: "ServiceTrade — never auto-create sprinkler jobs; suppression work needs human approval",
+      unknowns: ["Janet's phone number", "Marcus's cell", "Backup coordinator Dave's number", "Transfer timeout", "Office address"],
+      notes: "Strong demo. Clear emergency definitions. ServiceTrade constraints defined. Numbers needed on onboarding."
+    },
+    v2: {
+      business_hours: { days: ["Monday","Tuesday","Wednesday","Thursday","Friday"], start: "7:30 AM", end: "5:00 PM", timezone: "CST" },
+      services: ["Fire suppression", "Sprinkler installation", "Alarm monitoring", "Extinguisher service", "Annual inspections"],
+      emergency_routing: [
+        { name: "Janet", phone: "713-555-0142", order: 1 },
+        { name: "Marcus Reyes", phone: "713-555-0198", order: 2 },
+        { name: "Dave (Backup)", phone: "713-555-0207", order: 3 }
+      ],
+      emergency_definition: ["Active sprinkler discharge", "Fire alarm triggered", "CO alarm", "Panel fault (2hr callback)", "Life safety event"],
+      integration: "ServiceTrade — never auto-create sprinkler/suppression jobs; never log alarm monitoring calls as jobs",
+      pricing: "No quotes over phone. Technician provides quote after site assessment.",
+      unknowns: [],
+      notes: "Production ready. All routing numbers confirmed. Panel fault added as semi-emergency (2hr callback). ServiceTrade constraints expanded."
+    },
+    changelog: [
+      { field: "business_hours.start", old: "8:00 AM", new: "7:30 AM" },
+      { field: "business_hours.end", old: "6:00 PM", new: "5:00 PM" },
+      { field: "emergency_routing[0].phone", old: null, new: "713-555-0142" },
+      { field: "emergency_routing[1].phone", old: null, new: "713-555-0198" },
+      { field: "emergency_routing[2]", old: "none", new: "Dave (Backup) → 713-555-0207" },
+      { field: "call_transfer_rules.timeout_seconds", old: null, new: "45" },
+      { field: "emergency_definition", old: "4 types", new: "5 types (added panel fault → 2hr callback)" },
+      { field: "integration_constraints", old: "1 rule", new: "2 rules (added: never log monitoring calls as jobs)" },
+      { field: "office_address", old: null, new: "8820 Westpark Drive, Suite 200, Houston TX 77063" },
+      { field: "notification_channels.email", old: null, new: "dispatch@apexfireprotection.com" },
+    ]
+  },
+  {
+    id: "shield-sprinkler-co",
+    name: "Shield Sprinkler Co.",
+    owner: "Donna Chen",
+    location: "Phoenix, AZ (MST/no DST)",
+    type: "Sprinkler Contractor",
+    hasV2: true,
+    v1: {
+      business_hours: { days: ["Monday","Tuesday","Wednesday","Thursday","Friday"], start: "8:00 AM", end: "5:00 PM", timezone: "MST (no DST)" },
+      services: ["Fire suppression", "Wet/dry pipe systems", "Backflow testing", "Annual inspections"],
+      emergency_routing: [{ name: "Tyler (On-call)", phone: null, order: 1 }, { name: "Donna Chen (Owner)", phone: null, order: 2 }],
+      emergency_definition: ["Active sprinkler discharge", "Major panel fault"],
+      integration: "ServiceTrade — no auto-create for backflow testing jobs",
+      unknowns: ["Tyler's phone", "Donna's phone", "Transfer timeout", "Fallback if both fail", "Office address"],
+      notes: "No fallback defined in demo — critical gap. Need to resolve on onboarding."
+    },
+    v2: {
+      business_hours: { days: ["Monday","Tuesday","Wednesday","Thursday","Friday"], start: "8:00 AM", end: "5:00 PM", timezone: "MST (Arizona, no DST)" },
+      services: ["Fire suppression", "Wet/dry pipe systems", "Backflow testing", "Annual inspections"],
+      emergency_routing: [
+        { name: "Tyler", phone: "602-555-0133", order: 1 },
+        { name: "Donna Chen", phone: "602-555-0177", order: 2 },
+        { name: "James (Coordinator)", phone: "602-555-0191", order: 3 }
+      ],
+      emergency_definition: ["Active water discharge", "System alarm with fault code", "Fire panel offline"],
+      integration: "ServiceTrade — no auto-create backflow jobs; Desert Fire Systems calls → transfer to Donna directly",
+      pricing: "No quotes over phone.",
+      unknowns: [],
+      notes: "Production ready. Fallback resolved (James added). Emergency definitions clarified. Desert Fire Systems as internal caller identified."
+    },
+    changelog: [
+      { field: "emergency_routing[0].phone", old: null, new: "602-555-0133" },
+      { field: "emergency_routing[1].phone", old: null, new: "602-555-0177" },
+      { field: "emergency_routing[2]", old: "none", new: "James → 602-555-0191 (fallback resolved)" },
+      { field: "call_transfer_rules.timeout_seconds", old: null, new: "30" },
+      { field: "call_transfer_rules.message_if_fails", old: null, new: "Paged, callback within 10 minutes" },
+      { field: "emergency_definition", old: "2 broad types", new: "3 specific types (panel battery low = NOT emergency)" },
+      { field: "integration_constraints", old: "1 rule", new: "2 rules (added: Desert Fire Systems = internal, transfer directly)" },
+      { field: "office_address", old: null, new: "3344 North 7th Street, Phoenix AZ 85014" },
+      { field: "notification_channels.email", old: null, new: "office@shieldsprinkler.com" },
+    ]
+  },
+  {
+    id: "blazeguard-alarms",
+    name: "BlazeGuard Alarms",
+    owner: "Ray Kowalski",
+    location: "Chicago, IL + Milwaukee, WI (CST)",
+    type: "Alarm Systems (2 locations)",
+    hasV2: true,
+    v1: {
+      business_hours: { days: ["Monday","Tuesday","Wednesday","Thursday","Friday"], start: "7:00 AM", end: "6:00 PM", timezone: "CST" },
+      services: ["Commercial alarm systems", "Fire suppression", "Access control"],
+      emergency_routing: [{ name: "Kim (Chicago Dispatcher)", phone: null, order: 1 }, { name: "Pete (Milwaukee Manager)", phone: null, order: 2 }],
+      emergency_definition: ["Alarm activation with signal", "Sprinkler discharge", "Access control failure at secure facility"],
+      integration: "ServiceTrade (Chicago only) — never create monitoring calls as service jobs",
+      unknowns: ["Kim's phone", "Pete's phone", "Ray's phone", "Transfer timeouts", "Milwaukee routing if Pete fails", "Both office addresses"],
+      notes: "Two-location setup. Milwaukee still on spreadsheets. Clear routing separation by location."
+    },
+    v2: {
+      business_hours: { days: ["Monday","Tuesday","Wednesday","Thursday","Friday"], start: "7:00 AM", end: "6:00 PM", timezone: "CST" },
+      services: ["Commercial alarm systems", "Fire suppression", "Access control"],
+      emergency_routing: [
+        { name: "Kim (Chicago)", phone: "312-555-0144", order: 1 },
+        { name: "Derek (Ops Manager)", phone: "312-555-0155", order: 2 },
+        { name: "Ray Kowalski", phone: "312-555-0166", order: 3 }
+      ],
+      emergency_definition: ["Alarm activation with confirmed signal", "Sprinkler discharge", "Access control failure"],
+      integration: "ServiceTrade (Chicago) — no monitoring calls as jobs. Milwaukee → email milwaukee@blazeguardalarms.com (no ServiceTrade yet)",
+      pricing: "No quotes over phone.",
+      unknowns: [],
+      notes: "Production ready. Milwaukee routing via email until Q2 migration. Fallback message includes 911 recommendation for active fires."
+    },
+    changelog: [
+      { field: "emergency_routing[0].phone", old: null, new: "312-555-0144 (Kim)" },
+      { field: "emergency_routing[1].phone", old: null, new: "312-555-0155 (Derek - new contact)" },
+      { field: "emergency_routing[2]", old: "none", new: "Ray Kowalski → 312-555-0166" },
+      { field: "call_transfer_rules.timeout_seconds", old: null, new: "40" },
+      { field: "call_transfer_rules.message_if_fails", old: null, new: "Team paged, callback in 15 mins. If active fire: call 911." },
+      { field: "integration_constraints", old: "1 rule", new: "2 rules (Milwaukee → email, no ServiceTrade until Q2)" },
+      { field: "office_address", old: null, new: "Chicago: 2211 W Fulton St. Milwaukee: 890 N Plankinton Ave." },
+      { field: "notification_channels.email", old: null, new: "alerts@blazeguardalarms.com" },
+    ]
+  },
+  {
+    id: "peakfire-services",
+    name: "PeakFire Services",
+    owner: "Sandra Torres",
+    location: "Denver, CO (MST)",
+    type: "Fire Protection (Residential + Commercial)",
+    hasV2: true,
+    v1: {
+      business_hours: { days: ["Monday","Tuesday","Wednesday","Thursday","Friday"], start: "8:00 AM", end: "5:00 PM", timezone: "MST" },
+      services: ["Fire suppression", "Smoke/CO detectors", "Sprinkler inspection", "Annual checks"],
+      emergency_routing: [{ name: "On-call phone tree", phone: "720-555-0199", order: 1 }],
+      emergency_definition: ["Active fire", "Suppression discharge", "CO alarm", "Panel offline"],
+      integration: "Housecall Pro — no auto-create for warranty inquiry calls",
+      unknowns: ["Exact business hours to confirm", "Transfer timeout", "Sandra's notification email", "Office address"],
+      notes: "Demo call. Sandra flagged hours need confirmation. Strong emergency definitions. Housecall Pro (not ServiceTrade)."
+    },
+    v2: {
+      business_hours: { days: ["Monday","Tuesday","Wednesday","Thursday","Friday"], start: "7:30 AM", end: "5:30 PM", timezone: "MST (Denver, CO)" },
+      services: ["Fire suppression", "Smoke/CO detectors", "Sprinkler inspection", "Annual checks"],
+      emergency_routing: [{ name: "On-call phone tree", phone: "720-555-0199", order: 1 }],
+      emergency_definition: ["Active fire/smoke", "Suppression system discharge", "CO alarm triggered", "Alarm panel completely offline"],
+      integration: "Housecall Pro — no jobs for warranty inquiries (email warranty@peakfireservices.com). No jobs for competitor research calls.",
+      pricing: "No quotes over phone. Technician provides quote after site assessment.",
+      unknowns: [],
+      notes: "Production ready. Hours corrected (7:30-5:30). Timeout 50s. Competitor research calls added as reject case. Dual notification (Sandra + dispatch)."
+    },
+    changelog: [
+      { field: "business_hours.start", old: "8:00 AM", new: "7:30 AM" },
+      { field: "business_hours.end", old: "5:00 PM", new: "5:30 PM" },
+      { field: "business_hours.timezone", old: "MST", new: "MST (Denver, CO)" },
+      { field: "call_transfer_rules.timeout_seconds", old: null, new: "50" },
+      { field: "call_transfer_rules.message_if_fails", old: null, new: "Team notified, callback within 20 minutes" },
+      { field: "integration_constraints", old: "1 rule", new: "2 rules (added: competitor research → reject call)" },
+      { field: "office_address", old: null, new: "4455 South Monaco Street, Denver CO 80237" },
+      { field: "notification_channels.email", old: null, new: "dispatch@peakfireservices.com + cc: sandra@peakfireservices.com" },
+    ]
+  }
+];
+
+// ─── STATE ──────────────────────────────────────────────────────────────────
+let activeTab = 'overview';
+let selectedDiffAccount = ACCOUNTS[0].id;
+let selectedPromptAccount = ACCOUNTS[0].id;
+let activePromptVersion = 'v2';
+
+// ─── TAB SWITCHING ───────────────────────────────────────────────────────────
+function switchTab(tab) {
+  activeTab = tab;
+  document.querySelectorAll('.tab').forEach((t, i) => {
+    t.classList.toggle('active', ['overview','diff','prompts','changelog'][i] === tab);
+  });
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.getElementById(`panel-${tab}`).classList.add('active');
+  renderTab(tab);
+}
+
+function renderTab(tab) {
+  if (tab === 'overview') renderOverview();
+  else if (tab === 'diff') renderDiff();
+  else if (tab === 'prompts') renderPrompts();
+  else if (tab === 'changelog') renderChangelog();
+}
+
+// ─── OVERVIEW ────────────────────────────────────────────────────────────────
+function renderOverview() {
+  const grid = document.getElementById('accounts-grid');
+  grid.innerHTML = ACCOUNTS.map(a => {
+    const unknowns = a.hasV2 ? a.v2.unknowns.length : a.v1.unknowns.length;
+    return `
+    <div class="account-card fade-in" onclick="switchTab('diff'); selectedDiffAccount='${a.id}'; renderTab('diff')">
+      <div class="card-header">
+        <div>
+          <div class="company-name">${a.name}</div>
+          <div class="account-id">${a.id}</div>
+        </div>
+        <div class="version-badge">
+          <span class="badge v1">v1</span>
+          ${a.hasV2 ? '<span class="badge v2">v2</span>' : '<span class="badge pending">pending</span>'}
+        </div>
+      </div>
+      <div style="font-size:13px;color:var(--muted);margin-bottom:4px">${a.type}</div>
+      <div style="font-size:12px;color:var(--muted)">${a.location}</div>
+      <div class="card-meta">
+        <div class="meta-item">
+          <label>Business Hours</label>
+          <value>${a.v2?.business_hours?.start || a.v1.business_hours?.start || '?'} – ${a.v2?.business_hours?.end || a.v1.business_hours?.end || '?'}</value>
+        </div>
+        <div class="meta-item">
+          <label>Open Items</label>
+          <value class="unknowns-count ${unknowns === 0 ? 'zero' : ''}">${unknowns === 0 ? '✓ None' : `⚠ ${unknowns} item${unknowns > 1 ? 's' : ''}`}</value>
+        </div>
+        <div class="meta-item">
+          <label>Services</label>
+          <value>${(a.v2?.services || a.v1.services).length} configured</value>
+        </div>
+        <div class="meta-item">
+          <label>Emergency Routing</label>
+          <value>${(a.v2?.emergency_routing || a.v1.emergency_routing).length} contact${(a.v2?.emergency_routing || a.v1.emergency_routing).length !== 1 ? 's' : ''}</value>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// ─── DIFF ────────────────────────────────────────────────────────────────────
+function renderDiff() {
+  const selector = document.getElementById('diff-account-selector');
+  selector.innerHTML = ACCOUNTS.map(a =>
+    `<button class="account-pill ${a.id === selectedDiffAccount ? 'active' : ''}"
+      onclick="selectedDiffAccount='${a.id}'; renderDiff()">${a.name}</button>`
+  ).join('');
+
+  const account = ACCOUNTS.find(a => a.id === selectedDiffAccount);
+  const content = document.getElementById('diff-content');
+
+  const fields = [
+    { key: 'business_hours', label: 'Business Hours', fmt: v => v ? `${v.days?.join(', ')} · ${v.start}–${v.end} ${v.timezone || ''}` : null },
+    { key: 'services', label: 'Services Supported', fmt: v => v?.join(', ') },
+    { key: 'emergency_definition', label: 'Emergency Definitions', fmt: v => v?.join(' · ') },
+    { key: 'emergency_routing', label: 'Emergency Routing', fmt: v => v?.map(r => `${r.order}. ${r.name} ${r.phone ? '→ ' + r.phone : '(number pending)'}`).join(' | ') },
+    { key: 'integration', label: 'Integration Constraints', fmt: v => v },
+    { key: 'pricing', label: 'Pricing Policy', fmt: v => v },
+    { key: 'unknowns', label: 'Open Items', fmt: v => v?.length ? v.join(' · ') : '✅ None' },
+    { key: 'notes', label: 'Notes', fmt: v => v },
+  ];
+
+  content.innerHTML = `
+  <div class="diff-container fade-in">
+    <div class="diff-header">
+      <div>
+        <div class="diff-title">${account.name}</div>
+        <div class="diff-subtitle">${account.id} · ${account.type} · ${account.location}</div>
+      </div>
+      <div class="version-badge">
+        <span class="badge v1">v1 Demo</span>
+        <span style="color:var(--muted);font-size:14px;">→</span>
+        <span class="badge v2">v2 Onboarding</span>
+      </div>
+    </div>
+    <div class="diff-columns">
+      <div class="diff-col">
+        <div class="diff-col-header"><span class="badge v1">v1</span> Demo Call (Preliminary)</div>
+        ${fields.map(f => {
+          const val = account.v1[f.key];
+          const formatted = f.fmt(val);
+          return `<div class="diff-field">
+            <div class="field-name">${f.label}</div>
+            <div class="field-value ${!formatted ? 'null-value' : ''}">${formatted || '— not yet confirmed'}</div>
+          </div>`;
+        }).join('')}
+      </div>
+      <div class="diff-col">
+        <div class="diff-col-header"><span class="badge v2">v2</span> Onboarding Call (Confirmed)</div>
+        ${fields.map(f => {
+          const v1val = f.fmt(account.v1[f.key]);
+          const v2val = f.fmt(account.v2?.[f.key]);
+          const changed = v1val !== v2val;
+          return `<div class="diff-field ${changed ? 'changed' : ''}">
+            <div class="field-name">${f.label} ${changed ? '✦' : ''}</div>
+            <div class="field-value ${!v2val ? 'null-value' : changed ? 'new-value' : ''}">${v2val || '— not confirmed'}</div>
+          </div>`;
+        }).join('')}
+      </div>
+    </div>
+  </div>`;
+}
+
+// ─── PROMPTS ─────────────────────────────────────────────────────────────────
+function buildPrompt(account, version) {
+  const data = version === 'v1' ? account.v1 : (account.v2 || account.v1);
+  const bh = data.business_hours;
+  const hours = bh ? `${bh.days?.join(', ')} ${bh.start}–${bh.end} ${bh.timezone || ''}` : '[HOURS NOT CONFIRMED]';
+  const routing = data.emergency_routing?.map(r =>
+    `  ${r.order}. ${r.name} → ${r.phone || '[NUMBER PENDING]'}`
+  ).join('\n') || '  [ROUTING NOT CONFIRMED]';
+  const emergencyDef = data.emergency_definition?.join(', ') || '[EMERGENCY DEFINITION NOT CONFIRMED]';
+  const pricing = data.pricing || '[PRICING NOT CONFIGURED]';
+  const services = data.services?.join(', ') || '[SERVICES NOT CONFIRMED]';
+  const unknownsBlock = data.unknowns?.length
+    ? `\n# ⚠️ GAPS REQUIRING FOLLOW-UP:\n${data.unknowns.map(u => `# - ${u}`).join('\n')}\n` : '';
+
+  return `# Clara AI Voice Agent — ${account.name}
+# Version: ${version.toUpperCase()} | Account: ${account.id}
+${unknownsBlock}
+You are Clara, a professional AI receptionist for ${account.name}.
+
+## CORE RULES
+- Warm, professional, concise. Never ramble.
+- Never mention "function calls" or internal tools.
+- Collect only what is needed for routing and dispatch.
+- Never invent information.
+
+## BUSINESS INFORMATION
+Company: ${account.name}
+Services: ${services}
+Business Hours: ${hours}
+Pricing: ${pricing}
+
+---
+
+## DURING BUSINESS HOURS
+
+1. GREET: "Thank you for calling ${account.name}, this is Clara. How can I help you today?"
+
+2. UNDERSTAND PURPOSE
+   - Service/quote request → continue
+   - Sales call → "We're not looking for new vendors. Thank you, have a great day."
+   - Pricing question → share: ${pricing}
+
+3. COLLECT CALLER INFO
+   "May I get your name and best phone number?"
+   Confirm by repeating back.
+
+4. COLLECT JOB DETAILS
+   Brief description + service address. Keep it concise.
+
+5. TRANSFER
+   Transfer routing:
+${routing}
+   Timeout: ${data.call_transfer_rules?.timeout_seconds || '[NOT SET]'}s
+
+6. IF TRANSFER FAILS
+   "${data.call_transfer_rules?.message_if_fails || 'I was unable to reach our team directly. Someone will call you back as soon as possible.'}"
+
+7. CLOSE
+   "Is there anything else I can help you with?"
+   If no: "Thank you for calling ${account.name}. Have a great day!"
+
+---
+
+## AFTER HOURS
+
+1. GREET: "Thank you for calling ${account.name}. You've reached us after hours. I'm Clara."
+
+2. ASK PURPOSE: "Can you briefly tell me the reason for your call?"
+
+3. DETERMINE EMERGENCY
+   Emergencies include: ${emergencyDef}
+   "Is this an emergency requiring immediate attention?"
+
+4. IF EMERGENCY:
+   a. "I understand. Let me get your details right away."
+   b. Collect: full name → phone number → service address
+   c. Confirm all three.
+   d. Attempt emergency transfer:
+${routing}
+   e. If fails: "${data.call_transfer_rules?.message_if_fails || 'Our on-call team has been notified and will contact you shortly.'}"
+
+5. IF NON-EMERGENCY:
+   "Our team will be available ${hours}. I'll make sure your details are passed along."
+   Collect: name, phone, brief description.
+
+6. CLOSE: "Is there anything else I can help you with? ... Thank you for calling. Take care."
+
+---
+
+## TRANSFER PROTOCOL
+- Before: "I'm connecting you with our team now. Please hold."
+- Timeout: ${data.call_transfer_rules?.timeout_seconds || '[NOT SET]'}s then execute fallback.
+- Never say "transfer failed" to caller.`;
+}
+
+function renderPrompts() {
+  const selector = document.getElementById('prompt-account-selector');
+  selector.innerHTML = ACCOUNTS.map(a =>
+    `<button class="account-pill ${a.id === selectedPromptAccount ? 'active' : ''}"
+      onclick="selectedPromptAccount='${a.id}'; renderPrompts()">${a.name}</button>`
+  ).join('');
+
+  const account = ACCOUNTS.find(a => a.id === selectedPromptAccount);
+  const promptText = buildPrompt(account, activePromptVersion);
+
+  document.getElementById('prompt-content').innerHTML = `
+  <div class="prompt-viewer fade-in">
+    <div class="prompt-toolbar">
+      <div class="prompt-tabs">
+        <button class="prompt-tab ${activePromptVersion === 'v1' ? 'active' : ''}"
+          onclick="activePromptVersion='v1'; renderPrompts()">v1 Prompt</button>
+        <button class="prompt-tab ${activePromptVersion === 'v2' ? 'active' : ''}"
+          onclick="activePromptVersion='v2'; renderPrompts()">v2 Prompt</button>
+      </div>
+      <button class="copy-btn" onclick="navigator.clipboard.writeText(document.getElementById('prompt-text').innerText)">
+        Copy Prompt
+      </button>
+    </div>
+    <div class="prompt-content" id="prompt-text">${promptText}</div>
+  </div>`;
+}
+
+// ─── CHANGELOG ───────────────────────────────────────────────────────────────
+function renderChangelog() {
+  const content = document.getElementById('changelog-content');
+  content.innerHTML = ACCOUNTS.map(a => `
+  <div style="margin-bottom:32px;" class="fade-in">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
+      <div>
+        <div style="font-size:16px;font-weight:600;">${a.name}</div>
+        <div style="font-size:12px;color:var(--muted);font-family:var(--mono);">${a.id}</div>
+      </div>
+      <div style="display:flex;gap:8px;">
+        <span class="badge v1">v1</span>
+        <span style="color:var(--muted)">→</span>
+        <span class="badge v2">v2</span>
+      </div>
+    </div>
+    <div class="changelog-list">
+      ${a.changelog.map(c => `
+      <div class="changelog-item">
+        <div class="changelog-icon update">✦</div>
+        <div class="changelog-body">
+          <div class="changelog-field">${c.field}</div>
+          <div class="changelog-values">
+            <span class="old-val">${c.old === null ? 'null' : c.old}</span>
+            <span class="arrow">→</span>
+            <span class="new-val">${c.new}</span>
+          </div>
+        </div>
+      </div>`).join('')}
+    </div>
+  </div>`).join('');
+}
+
+// ─── INIT ────────────────────────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', () => {
+  renderOverview();
+
+  // Update stats
+  const totalUnknowns = ACCOUNTS.reduce((sum, a) =>
+    sum + (a.v2?.unknowns?.length || a.v1.unknowns.length), 0);
+  document.getElementById('total-unknowns').textContent = totalUnknowns;
+  document.getElementById('v2-count').textContent = ACCOUNTS.filter(a => a.hasV2).length;
+});
+</script>
+</body>
+</html>

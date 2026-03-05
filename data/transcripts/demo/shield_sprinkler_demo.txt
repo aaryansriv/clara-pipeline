@@ -1,0 +1,164 @@
+S
+Speaker 1
+00:02
+Great, let's bring Donna in. Three, two, one. Welcome, Donna.
+S
+Speaker 2
+00:08
+Hey Donna, thanks for joining. I'm Nick from Clara AI. I've got Bharat here to walk you through the platform.
+S
+Speaker 3
+00:15
+Hi Nick, hi Bharat. Thanks for setting this up.
+S
+Speaker 1
+00:18
+Hey Donna. Pleasure meeting you. Before we dive in, tell me about Shield Sprinkler Co. What does your business look like?
+S
+Speaker 3
+00:26
+Sure. So Shield Sprinkler is based out of Phoenix, Arizona. We specialize in fire suppression — wet and dry pipe systems, backflow testing, and annual inspections. We've been around for about 15 years.
+S
+Speaker 1
+00:40
+That's a solid specialty. How big is your team?
+S
+Speaker 3
+00:43
+We have 8 technicians in the field, Tyler who's our lead tech and handles on-call, and me. I run the business side of things — scheduling, customer relations, billing, all of it.
+S
+Speaker 1
+00:56
+So you're wearing a lot of hats.
+S
+Speaker 3
+00:58
+Oh yeah. Tyler handles the field operations but when he's not available, calls come to me. The problem is I can't always answer, especially when I'm in meetings or at a job site.
+S
+Speaker 1
+01:10
+How many calls are you getting per week roughly?
+S
+Speaker 3
+01:13
+Probably 30 to 40 inbound calls a week. Half of them are scheduling and routine stuff. But the emergency ones — those are the ones I can't miss.
+S
+Speaker 1
+01:24
+And what counts as an emergency for you?
+S
+Speaker 3
+01:27
+Active sprinkler discharge is the big one. Water going everywhere, clients panicking. The second one is a major panel fault — if the fire panel goes down, that's a serious problem for the building.
+S
+Speaker 1
+01:41
+Clear. And for after hours, who gets those emergency calls?
+S
+Speaker 3
+01:45
+Tyler first. He's our on-call tech. If Tyler can't answer, then me. But right now there's no fallback after that. If both of us miss it, the caller just... gets nothing. That's a problem we need to solve.
+S
+Speaker 1
+02:00
+Got it. So there's a gap in the fallback chain. What happens during the day? What are your business hours?
+S
+Speaker 3
+02:07
+Monday to Friday, 8 AM to 5 PM. We're on Mountain Standard Time — Arizona, so no daylight saving changes.
+S
+Speaker 1
+02:15
+That's convenient. No DST confusion. And what system are you using for job management?
+S
+Speaker 3
+02:20
+ServiceTrade. Same as a lot of folks in fire protection. One thing though — never auto-create jobs for backflow testing. Those require specific certifications and we need to assign the right tech manually.
+S
+Speaker 1
+02:33
+Noted. ServiceTrade, no auto-create for backflow testing jobs. Anything else I should know?
+S
+Speaker 3
+02:38
+I think that covers the basics. I'm sure there'll be more details when we do the actual setup.
+S
+Speaker 1
+02:44
+Definitely. Let me show you what Clara can do. I'll put a number on screen — go ahead and call it and act like a customer.
+S
+Speaker 3
+02:52
+OK let me try.
+S
+Speaker 4
+03:10
+Thank you for calling Shield Sprinkler Co., this is Clara. How can I help you today?
+S
+Speaker 3
+03:15
+Hi, I've got water coming from one of my sprinkler heads in the main hallway. It started about 20 minutes ago.
+S
+Speaker 4
+03:23
+That sounds like it could be an active discharge. I want to make sure we get this handled right away. Can I get your name and the best phone number to reach you?
+S
+Speaker 3
+03:32
+Linda Morrison. 602-555-0199.
+S
+Speaker 4
+03:37
+Thank you, Linda. And what's the address of the building?
+S
+Speaker 3
+03:40
+2100 East Camelback Road, Phoenix.
+S
+Speaker 4
+03:44
+Got it. 2100 East Camelback Road, Phoenix. I'm going to flag this as urgent and get our on-call technician notified immediately. Someone will reach out to you shortly. Is there anything else I can help with?
+S
+Speaker 3
+03:55
+No, just need someone here fast.
+S
+Speaker 4
+03:58
+Understood. We're on it, Linda. Thank you for calling Shield Sprinkler Co.
+S
+Speaker 3
+04:03
+Thanks.
+S
+Speaker 1
+04:06
+What'd you think?
+S
+Speaker 3
+04:08
+Really good. It zeroed in on the urgency right away and didn't waste time with unnecessary questions. Name, number, address, done. That's exactly how it should work for emergencies.
+S
+Speaker 1
+04:19
+And once it's configured for Shield Sprinkler specifically, it'll know Tyler's number, your number, the routing order, timeout rules — all of it.
+S
+Speaker 3
+04:28
+That would be amazing. Especially solving that fallback gap. What's the next step?
+S
+Speaker 1
+04:34
+We'll get you signed up and then do an onboarding call where we nail down all the specifics — phone numbers, routing order, timeouts, ServiceTrade rules, everything.
+S
+Speaker 3
+04:43
+Let's do it. I'm sold.
+S
+Speaker 1
+04:45
+Great. I'll send the paperwork over today. Welcome to Clara, Donna.
+S
+Speaker 3
+04:50
+Thanks, guys. Really excited about this.

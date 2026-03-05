@@ -1,0 +1,112 @@
+S
+Speaker 1
+00:02
+Sandra, welcome back. Pawan here for your onboarding.
+S
+Speaker 3
+00:06
+Hi Pawan. Ready to get this configured.
+S
+Speaker 2
+00:09
+Let's jump in. First, business hours. You mentioned needing to confirm the exact times. What are we going with?
+S
+Speaker 3
+00:15
+So after looking at it, we're actually 7:30 AM to 5:30 PM, Monday through Friday. Denver, Mountain Standard Time.
+S
+Speaker 2
+00:24
+7:30 to 5:30, MST Denver. Got it. Different from the 8 to 5 on the website.
+S
+Speaker 3
+00:30
+Yeah, the website needs updating. The guys start at 7:30 and we take calls until 5:30.
+S
+Speaker 2
+00:36
+Noted. Office address?
+S
+Speaker 3
+00:38
+4455 South Monaco Street, Denver, Colorado, 80237.
+S
+Speaker 2
+00:45
+Got it. Now the on-call phone tree — still 720-555-0199?
+S
+Speaker 3
+00:50
+Yes, that's correct. That number rings through to whoever is on rotation.
+S
+Speaker 2
+00:55
+Transfer timeout?
+S
+Speaker 3
+00:57
+50 seconds. Our guys are sometimes on ladders or in tight spaces. Give them time to get to the phone.
+S
+Speaker 2
+01:04
+50 seconds. That's reasonable. And if the phone tree doesn't answer?
+S
+Speaker 3
+01:09
+Tell the caller the team has been notified and someone will call back within 20 minutes. We take our response times seriously.
+S
+Speaker 2
+01:18
+20-minute callback guarantee. Now emergency definitions — you had four: active fire, suppression discharge, CO alarm, panel offline. Anything to refine?
+S
+Speaker 3
+01:28
+Let me be more precise. Active fire or smoke — either one. Suppression system discharge. CO alarm triggered. And alarm panel completely offline — not just a low battery or minor fault, but completely offline.
+S
+Speaker 2
+01:44
+So minor panel faults like low battery are NOT emergencies?
+S
+Speaker 3
+01:48
+Correct. Those can wait until morning.
+S
+Speaker 2
+01:51
+Perfect distinction. Housecall Pro — no auto-create for warranty inquiries. Anything to add?
+S
+Speaker 3
+01:57
+Yes actually. If we get calls from people asking about our competitors' products — like someone calling to ask about pricing for comparison shopping or competitor research — Clara should not create a job for those. Just politely decline and end the call.
+S
+Speaker 2
+02:13
+Interesting use case. So competitor research calls are a reject case — don't create a job, politely decline. Got it. Anything about warranty inquiries specifically?
+S
+Speaker 3
+02:23
+For warranty inquiries, don't create a Housecall Pro job. Instead, have the caller email warranty@peakfireservices.com directly. Clara can provide that email address.
+S
+Speaker 2
+02:34
+Got it. Warranty inquiries go to warranty@peakfireservices.com, not Housecall Pro. And for notifications after each call?
+S
+Speaker 3
+02:42
+Two emails. Dispatch@peakfireservices.com for the dispatch team, and CC me at sandra@peakfireservices.com. I want to see everything that comes in.
+S
+Speaker 2
+02:53
+Dual notification — dispatch and your personal email. Perfect. I think that covers everything. I'll configure the agent and send you the test number by end of day. Review call — Friday?
+S
+Speaker 3
+03:04
+Friday at 3 PM works for me.
+S
+Speaker 2
+03:07
+Done. Friday at 3. Thanks Sandra.
+S
+Speaker 3
+03:10
+Thanks Pawan. Can't wait to test it.

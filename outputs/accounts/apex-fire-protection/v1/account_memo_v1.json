@@ -1,0 +1,83 @@
+{
+  "account_id": "apex-fire-protection",
+  "company_name": "Apex Fire Protection",
+  "owner_name": "Marcus",
+  "business_hours": {
+    "days": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday"
+    ],
+    "start": "8:00",
+    "end": "6:00",
+    "timezone": null
+  },
+  "office_address": null,
+  "services_supported": [
+    "fire suppression systems",
+    "sprinkler installation",
+    "alarm monitoring",
+    "extinguisher service",
+    "inspections"
+  ],
+  "emergency_definition": [
+    "active sprinkler discharge",
+    "fire alarm triggered",
+    "CO alarm going off",
+    "active life safety event"
+  ],
+  "emergency_routing_rules": [
+    {
+      "name": "Janet",
+      "phone": null,
+      "order": 1,
+      "fallback": "Marcus"
+    },
+    {
+      "name": "Marcus",
+      "phone": null,
+      "order": 2,
+      "fallback": "Dave"
+    },
+    {
+      "name": "Dave",
+      "phone": null,
+      "order": 3,
+      "fallback": null
+    }
+  ],
+  "non_emergency_routing_rules": "Janet handles non-emergency calls during the day, and Marcus steps in when she's not available",
+  "call_transfer_rules": {
+    "timeout_seconds": null,
+    "retries": null,
+    "message_if_fails": null
+  },
+  "integration_constraints": [
+    "Uses ServiceTrade",
+    "Do not auto-create sprinkler or suppression jobs"
+  ],
+  "after_hours_flow_summary": "Clara handles initial screening and routing",
+  "office_hours_flow_summary": "Janet handles incoming calls and dispatching during the day",
+  "pricing_info": {
+    "service_call_fee": null,
+    "hourly_rate": null,
+    "billing_increment": null,
+    "disclose_on_request_only": false,
+    "notes": null
+  },
+  "notification_channels": null,
+  "questions_or_unknowns": [
+    "Janet's phone number",
+    "Dave's phone number",
+    "Marcus' phone number",
+    "office address",
+    "exact routing rules",
+    "timeouts"
+  ],
+  "notes": "Demo call for Apex Fire Protection, discussed emergency definitions, routing rules, and ServiceTrade integration",
+  "version": "v1",
+  "created_at": "2026-03-05T19:48:13.539236",
+  "updated_at": "2026-03-05T19:48:13.539236"
+}

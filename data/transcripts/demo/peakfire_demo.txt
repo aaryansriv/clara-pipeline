@@ -1,0 +1,168 @@
+S
+Speaker 1
+00:02
+Let's bring Sandra in. Three, two, one. Hey Sandra, welcome.
+S
+Speaker 2
+00:08
+Sandra, thanks for joining. I'm Nick from Clara AI. Bharat is here to give you the full walkthrough.
+S
+Speaker 3
+00:14
+Hi guys. Thanks for setting this up. I've been looking forward to it.
+S
+Speaker 1
+00:18
+Sandra, great to connect. Tell me about PeakFire Services. What does your business look like?
+S
+Speaker 3
+00:25
+Sure. PeakFire is a fire protection company in Denver, Colorado. We do both residential and commercial. Fire suppression systems, smoke and CO detectors, sprinkler inspection, and annual checks. We've been in business for 11 years.
+S
+Speaker 1
+00:42
+Residential and commercial — that's a nice mix. How big is the team?
+S
+Speaker 3
+00:46
+We have 6 technicians, plus myself. I handle all the office work, scheduling, customer calls. The techs are in the field all day.
+S
+Speaker 1
+00:56
+So you're the sole person handling inbound calls?
+S
+Speaker 3
+00:59
+Yep. It's just me. And honestly, it's getting overwhelming. I'm missing calls when I'm on other calls, when I'm doing quotes, when I'm at lunch. It's bad.
+S
+Speaker 1
+01:10
+That's a common pain point. How many calls a week are we talking?
+S
+Speaker 3
+01:14
+Probably 25 to 35. Mix of service requests, inspection scheduling, and the occasional emergency.
+S
+Speaker 1
+01:22
+And business hours?
+S
+Speaker 3
+01:24
+Monday to Friday. I think our website says 8 to 5, but honestly I need to double-check that. The guys start early and sometimes run late. Let me confirm the exact hours on the onboarding call.
+S
+Speaker 1
+01:37
+That's fine, we'll nail it down then. What about emergencies? What makes you roll after hours?
+S
+Speaker 3
+01:43
+Active fire obviously. Suppression system discharge — water going everywhere. CO alarm triggered. And if a panel goes offline completely. Those four would be our emergencies.
+S
+Speaker 1
+01:57
+Solid definitions. And who handles on-call?
+S
+Speaker 3
+02:00
+We have an on-call phone tree. It just rings through to whoever is on rotation that week. The number for the tree is 720-555-0199.
+S
+Speaker 1
+02:12
+Oh nice, you already have a phone tree set up. That makes routing straightforward. What system are you using?
+S
+Speaker 3
+02:18
+Housecall Pro. It's great for scheduling and invoicing but it doesn't have the sophistication of ServiceTrade. One thing — don't ever auto-create a job for warranty inquiry calls. Those go through a completely different process.
+S
+Speaker 1
+02:33
+Got it. Housecall Pro, no auto-create for warranty inquiries. Any other constraints?
+S
+Speaker 3
+02:38
+Not off the top of my head. I'm sure I'll think of more during onboarding.
+S
+Speaker 1
+02:42
+That's what the onboarding call is for. Let me show you what Clara can do.
+S
+Speaker 4
+03:00
+Thank you for calling PeakFire Services, this is Clara. How can I help you today?
+S
+Speaker 3
+03:05
+Hi, I need to schedule my annual fire suppression inspection. We're a commercial building.
+S
+Speaker 4
+03:11
+I'd be happy to help you with that. Can I get your name and the best phone number to reach you?
+S
+Speaker 3
+03:16
+Sandra Torres. 720-555-0188.
+S
+Speaker 4
+03:21
+Thank you, Sandra. And what's the address of the building that needs the inspection?
+S
+Speaker 3
+03:25
+4500 Morrison Road, Denver.
+S
+Speaker 4
+03:29
+Got it. And do you know how many sprinkler zones or suppression systems are in the building? This helps us estimate the time needed.
+S
+Speaker 3
+03:37
+Two zones. One wet system and one dry system.
+S
+Speaker 4
+03:42
+Perfect. Two zones with wet and dry systems. I'll pass this along to our scheduling team and someone will reach out to confirm a date and time that works for you. Is there anything else I can help with?
+S
+Speaker 3
+03:52
+No, that's perfect. Thank you.
+S
+Speaker 4
+03:55
+Thank you for calling PeakFire Services, Sandra. We'll be in touch soon. Have a great day.
+S
+Speaker 3
+04:00
+Thanks, bye.
+S
+Speaker 1
+04:03
+What did you think?
+S
+Speaker 3
+04:05
+That was really good. The questions were appropriate — not too many, not too few. It got exactly what we'd need to schedule an inspection. I'm impressed.
+S
+Speaker 1
+04:15
+And once it's trained on PeakFire specifically, we can make it even more tailored. The emergency routing with your phone tree, the Housecall Pro constraints, everything.
+S
+Speaker 3
+04:25
+I love it. What do I need to do to get started?
+S
+Speaker 1
+04:28
+I'll send over the paperwork. Once that's done, we schedule the onboarding call to finalize all the details — business hours, notification preferences, any special rules.
+S
+Speaker 3
+04:37
+Sounds great. Let's do it.
+S
+Speaker 1
+04:39
+Welcome to Clara, Sandra. Excited to get you set up.
+S
+Speaker 3
+04:42
+Thank you both. This is going to be a game changer.

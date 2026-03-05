@@ -1,0 +1,90 @@
+[
+  {
+    "account_id": "apex-fire-protection",
+    "company_name": "Apex Fire Protection",
+    "pipeline": "A",
+    "action": "created",
+    "timestamp": "2026-03-05T19:47:07.950953",
+    "notes": "Demo call for Apex Fire Protection, discussed emergency routing and ServiceTrade integration"
+  },
+  {
+    "account_id": "bens-electric-solutions",
+    "company_name": "",
+    "pipeline": "A",
+    "action": "created",
+    "timestamp": "2026-03-05T19:48:10.230111",
+    "notes": "Demo call to discuss AI-powered virtual receptionist for electrical contracting business"
+  },
+  {
+    "account_id": "apex-fire-protection",
+    "company_name": "Apex Fire Protection",
+    "pipeline": "A",
+    "action": "created",
+    "timestamp": "2026-03-05T19:48:13.544209",
+    "notes": "Demo call for Apex Fire Protection, discussed emergency definitions, routing rules, and ServiceTrade integration"
+  },
+  {
+    "account_id": "shield-sprinkler-co",
+    "company_name": "Shield Sprinkler Co.",
+    "pipeline": "A",
+    "action": "created",
+    "timestamp": "2026-03-05T19:48:16.523749",
+    "notes": "Demo call for Shield Sprinkler Co. to discuss using Clara AI for call handling"
+  },
+  {
+    "account_id": "blazeguard-alarms",
+    "company_name": "BlazeGuard Alarms",
+    "pipeline": "A",
+    "action": "created",
+    "timestamp": "2026-03-05T19:48:25.839032",
+    "notes": "demo call for BlazeGuard Alarms, discussed business hours, emergency response, and integration with ServiceTrade"
+  },
+  {
+    "account_id": "peakfire-services",
+    "company_name": "PeakFire Services",
+    "pipeline": "A",
+    "action": "created",
+    "timestamp": "2026-03-05T19:48:36.889503",
+    "notes": "Demo call for PeakFire Services, discussed emergency routing and integration with Housecall Pro"
+  },
+  {
+    "account_id": "bens-electric-solutions",
+    "company_name": "Ben's Electric Solutions",
+    "pipeline": "B",
+    "action": "created",
+    "timestamp": "2026-03-05T19:49:13.280221",
+    "notes": "v2 agent generated from onboarding call."
+  },
+  {
+    "account_id": "apex-fire-protection",
+    "company_name": "Apex Fire Protection",
+    "pipeline": "B",
+    "action": "created",
+    "timestamp": "2026-03-05T19:49:26.347967",
+    "notes": "v2 agent generated from onboarding call."
+  },
+  {
+    "account_id": "shield-sprinkler-co",
+    "company_name": "Shield Sprinkler Co.",
+    "pipeline": "B",
+    "action": "created",
+    "timestamp": "2026-03-05T19:49:37.652450",
+    "notes": "v2 agent generated from onboarding call."
+  },
+  {
+    "account_id": "blazeguard-alarms",
+    "company_name": "BlazeGuard Alarms",
+    "pipeline": "B",
+    "action": "created",
+    "timestamp": "2026-03-05T19:49:50.519425",
+    "notes": "v2 agent generated from onboarding call."
+  },
+  {
+    "account_id": "peakfire-services",
+    "company_name": "PeakFire Services",
+    "pipeline": "B",
+    "action": "created",
+    "timestamp": "2026-03-05T19:50:01.063671",
+    "notes": "v2 agent generated from onboarding call."
+  }
+]

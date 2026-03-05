@@ -1,0 +1,157 @@
+{
+  "account_id": "apex-fire-protection",
+  "company_name": "Apex Fire Protection",
+  "date": "2026-03-05T19:49:26.344595",
+  "version_from": "v1",
+  "version_to": "v2",
+  "changes": [
+    {
+      "field": "integration_constraints",
+      "old_value": [
+        "Uses ServiceTrade",
+        "Do not auto-create sprinkler or suppression jobs"
+      ],
+      "new_value": [
+        "Uses ServiceTrade",
+        "Do not auto-create sprinkler or suppression jobs",
+        "Do not log alarm monitoring calls as service jobs"
+      ]
+    },
+    {
+      "field": "business_hours.start",
+      "old_value": "8:00",
+      "new_value": "7:30"
+    },
+    {
+      "field": "business_hours.end",
+      "old_value": "6:00",
+      "new_value": "5:00"
+    },
+    {
+      "field": "business_hours.timezone",
+      "old_value": null,
+      "new_value": "Central"
+    },
+    {
+      "field": "office_address",
+      "old_value": null,
+      "new_value": "8820 Westpark Drive, Suite 200, Houston, Texas 77063"
+    },
+    {
+      "field": "pricing_info.disclose_on_request_only",
+      "old_value": false,
+      "new_value": true
+    },
+    {
+      "field": "call_transfer_rules.retries",
+      "old_value": null,
+      "new_value": 1
+    },
+    {
+      "field": "call_transfer_rules.message_if_fails",
+      "old_value": null,
+      "new_value": "Our team has been paged and someone will call back within 15 minutes. If it's an active fire situation, please call 911 immediately."
+    },
+    {
+      "field": "call_transfer_rules.timeout_seconds",
+      "old_value": null,
+      "new_value": 45
+    },
+    {
+      "field": "questions_or_unknowns",
+      "old_value": [
+        "Janet's phone number",
+        "Dave's phone number",
+        "Marcus' phone number",
+        "office address",
+        "exact routing rules",
+        "timeouts"
+      ],
+      "new_value": [
+        "Marcus' phone number",
+        "Dave's phone number",
+        "Janet's phone number",
+        "timeouts",
+        "office address",
+        "exact routing rules"
+      ]
+    },
+    {
+      "field": "notification_channels",
+      "old_value": null,
+      "new_value": {
+        "email": "dispatch@apexfireprotection.com",
+        "sms": null,
+        "webhook": null
+      }
+    },
+    {
+      "field": "emergency_routing_rules",
+      "old_value": [
+        {
+          "name": "Janet",
+          "phone": null,
+          "order": 1,
+          "fallback": "Marcus"
+        },
+        {
+          "name": "Marcus",
+          "phone": null,
+          "order": 2,
+          "fallback": "Dave"
+        },
+        {
+          "name": "Dave",
+          "phone": null,
+          "order": 3,
+          "fallback": null
+        }
+      ],
+      "new_value": [
+        {
+          "name": "Janet",
+          "phone": "713-555-0142",
+          "order": 1,
+          "fallback": "Marcus"
+        },
+        {
+          "name": "Marcus",
+          "phone": "713-555-0198",
+          "order": 2,
+          "fallback": "Dave"
+        },
+        {
+          "name": "Dave",
+          "phone": "713-555-0207",
+          "order": 3,
+          "fallback": null
+        }
+      ]
+    },
+    {
+      "field": "emergency_definition",
+      "old_value": [
+        "active sprinkler discharge",
+        "fire alarm triggered",
+        "CO alarm going off",
+        "active life safety event"
+      ],
+      "new_value": [
+        "active sprinkler discharge",
+        "fire alarm triggered",
+        "CO alarm going off",
+        "active life safety event",
+        "panel fault"
+      ]
+    }
+  ],
+  "outstanding_items": [
+    "Marcus' phone number",
+    "Dave's phone number",
+    "Janet's phone number",
+    "timeouts",
+    "office address",
+    "exact routing rules"
+  ],
+  "llm_notes": "Updated business hours, office address, emergency definitions, routing rules, and integration constraints. Added panel fault as a semi-emergency and clarified pricing and notification channels."
+}

@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.env
+*.env
+
+# API Keys — never commit
+.env.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Outputs are generated — keep structure but ignore large files
+# We INCLUDE outputs to show the results

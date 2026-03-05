@@ -1,0 +1,160 @@
+S
+Speaker 1
+00:02
+Bringing Ray in now. Three, two, one. Welcome, Ray.
+S
+Speaker 2
+00:08
+Ray, thanks for joining. I'm Nick from Clara AI. Bharat's here to walk you through our platform.
+S
+Speaker 3
+00:14
+Hey guys. Thanks for squeezing me in. Busy day as always.
+S
+Speaker 1
+00:18
+We appreciate your time, Ray. Tell me about BlazeGuard Alarms. What's the operation look like?
+S
+Speaker 3
+00:25
+Sure. So BlazeGuard is a commercial alarm systems company. We do alarm systems, fire suppression, and access control. We've got two locations — our main office in Chicago and a secondary office in Milwaukee.
+S
+Speaker 1
+00:39
+Two locations. That adds some complexity. How does the team break down?
+S
+Speaker 3
+00:43
+Chicago is the main hub. I'm based there. We have Kim as our dispatcher, about 8 techs. Milwaukee has Pete as the office manager and 4 more techs. Totally about 15 people including myself.
+S
+Speaker 1
+00:58
+So Kim handles Chicago calls and Pete handles Milwaukee?
+S
+Speaker 3
+01:02
+Exactly. Kim runs dispatch for Chicago. Pete runs Milwaukee. If either of them can't be reached, it escalates to me. I'm the final stop.
+S
+Speaker 1
+01:12
+Good to know. Business hours?
+S
+Speaker 3
+01:14
+Monday through Friday, 7 AM to 6 PM Central time. Same for both locations.
+S
+Speaker 1
+01:21
+Got it. And emergencies — what triggers an after-hours response from your team?
+S
+Speaker 3
+01:27
+Three things: alarm activation with a confirmed signal — meaning the monitoring company has verified it's real. Sprinkler discharge. And access control failure at a secure facility. Those three get immediate response.
+S
+Speaker 1
+01:42
+Very specific. I like that. Any routine stuff that comes in after hours?
+S
+Speaker 3
+01:47
+Yeah, we get calls about battery replacements, panel codes, general questions. Those can all wait until the morning. We just need to make sure the real emergencies get through.
+S
+Speaker 1
+01:58
+Makes sense. What system are you using?
+S
+Speaker 3
+02:01
+ServiceTrade for Chicago. Milwaukee is still on spreadsheets — we haven't migrated them over yet. That's a Q2 project.
+S
+Speaker 1
+02:10
+So ServiceTrade for Chicago only. Any rules about how Clara should interact with it?
+S
+Speaker 3
+02:16
+Yeah. Never create monitoring calls as service jobs. Monitoring is handled by a separate team and workflow. If someone calls about their alarm monitoring, just take a message and send it to dispatch. Don't put it in ServiceTrade.
+S
+Speaker 1
+02:30
+Noted. ServiceTrade Chicago — no monitoring calls as service jobs. Milwaukee — email or manual until Q2 migration. Got it.
+S
+Speaker 3
+02:39
+That's right.
+S
+Speaker 1
+02:41
+Let me show you what Clara can do. I'll give you a number to call.
+S
+Speaker 4
+03:05
+Thank you for calling BlazeGuard Alarms, this is Clara. How can I help you today?
+S
+Speaker 3
+03:10
+Yeah, we're getting an alarm signal at our building. The fire panel is showing a zone 3 fault.
+S
+Speaker 4
+03:17
+I understand a zone 3 fault on your fire panel is a serious concern. Let me get your details so we can assist you right away. Can I have your name and the best number to reach you?
+S
+Speaker 3
+03:27
+Ray Kowalski. 312-555-0166.
+S
+Speaker 4
+03:32
+Thank you, Ray. And what's the building address?
+S
+Speaker 3
+03:35
+4200 North Harlem Avenue, Chicago.
+S
+Speaker 4
+03:39
+Got it. I'm flagging this for immediate attention. Our team will be reaching out to you shortly. Is there anything else I need to know?
+S
+Speaker 3
+03:46
+No, just get someone here quick.
+S
+Speaker 4
+03:49
+Absolutely. We're on it, Ray. Thank you for calling BlazeGuard Alarms.
+S
+Speaker 3
+03:53
+Thanks.
+S
+Speaker 1
+03:56
+What do you think?
+S
+Speaker 3
+03:58
+Not bad. Fast, professional, didn't ask too many questions. That's exactly what we need. Would it know to route Chicago calls to Kim and Milwaukee calls to Pete?
+S
+Speaker 1
+04:08
+Once we configure it with your specific routing rules, absolutely. It'll know the difference and route accordingly.
+S
+Speaker 3
+04:16
+That's what we need. Having one system handle both locations would be huge for us.
+S
+Speaker 1
+04:22
+We can make that happen. The next step is an onboarding call where we get all the phone numbers, routing rules, and specifics locked down.
+S
+Speaker 3
+04:30
+Let's set it up. I'll have Kim and Pete's info ready.
+S
+Speaker 1
+04:35
+Perfect. I'll send the paperwork today. Welcome aboard, Ray.
+S
+Speaker 3
+04:39
+Thanks guys. Excited to get this going.

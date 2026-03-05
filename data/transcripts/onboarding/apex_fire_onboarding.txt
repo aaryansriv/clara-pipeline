@@ -1,0 +1,128 @@
+S
+Speaker 1
+00:02
+All right, Marcus is joining. Three, two, one. Hey Marcus, welcome to the onboarding session.
+S
+Speaker 3
+00:10
+Hey, good to see you guys again.
+S
+Speaker 2
+00:12
+Marcus, I'm Pawan. I'll be your dedicated onboarding specialist. I've got all the context from your demo call. Let's dial in the details so we can get your agent configured and ready for testing.
+S
+Speaker 3
+00:23
+Perfect. I've got all the info you guys asked for.
+S
+Speaker 2
+00:26
+Great. Let's start with business hours. On the demo call, we had Monday to Friday, 8 to 6. Is that confirmed?
+S
+Speaker 3
+00:33
+Actually, let me correct that. Our guys start at 7:30, so we're open 7:30 to 5. The 8 to 6 was wrong. It's 7:30 AM to 5 PM, Monday through Friday.
+S
+Speaker 2
+00:45
+Got it. 7:30 AM to 5 PM, Monday through Friday, Central time. And your office address?
+S
+Speaker 3
+00:51
+8820 Westpark Drive, Suite 200, Houston, Texas 77063.
+S
+Speaker 2
+00:59
+Perfect. Now let's talk routing. You mentioned Janet is first in line, then you, then Dave. Do you have their phone numbers ready?
+S
+Speaker 3
+01:07
+Yeah. Janet is 713-555-0142. My cell is 713-555-0198. And Dave is 713-555-0207.
+S
+Speaker 2
+01:20
+Perfect. So the routing order is: Janet at 713-555-0142 first, you at 713-555-0198 second, and Dave at 713-555-0207 as backup. Sound right?
+S
+Speaker 3
+01:32
+That's exactly right.
+S
+Speaker 2
+01:34
+And for transfer timeout — how long should Clara wait before moving to the next person?
+S
+Speaker 3
+01:39
+I'd say 45 seconds. If Janet doesn't pick up in 45 seconds, move to me. Same down the line.
+S
+Speaker 2
+01:47
+Got it. 45 seconds per person. And if all three fail — what should Clara tell the caller?
+S
+Speaker 3
+01:53
+Tell them our team has been paged and someone will call back within 15 minutes. But if it's an active fire situation, tell them to call 911 immediately. That's important.
+S
+Speaker 2
+02:05
+Important detail. So the fallback message includes a 911 recommendation for active fire situations. Got it. Now let's refine the emergency definitions. You mentioned active sprinkler discharge, fire alarm triggered, CO alarm, and life safety events. Anything to add or change?
+S
+Speaker 3
+02:22
+Yeah, actually. Can we add panel fault? If a fire panel goes down, that's not as urgent as an active fire, but we need to know about it within 2 hours. So it's like a semi-emergency — we don't need to roll a truck immediately, but we need a callback within 2 hours.
+S
+Speaker 2
+02:39
+So we'll treat panel fault as a 2-hour callback priority. Not an immediate dispatch, but escalated above normal. Got it. Anything else on emergencies?
+S
+Speaker 3
+02:48
+No, I think that covers it.
+S
+Speaker 2
+02:50
+Great. Now ServiceTrade. You mentioned on the demo that we should never auto-create sprinkler or suppression jobs. Anything else?
+S
+Speaker 3
+02:58
+Yes. Never log alarm monitoring calls as service jobs either. Those are handled through a completely different workflow. If someone calls about alarm monitoring, Clara should just collect the info and send it to dispatch. Don't create a ServiceTrade job for it.
+S
+Speaker 2
+03:14
+Got it. Two ServiceTrade rules: no auto-create for sprinkler or suppression jobs, and no logging alarm monitoring calls as service jobs.
+S
+Speaker 3
+03:23
+That's right.
+S
+Speaker 2
+03:25
+Now pricing. Do you want Clara to quote any prices?
+S
+Speaker 3
+03:28
+No. No quotes over the phone. Our technician provides a quote after assessing the site. Just tell the caller we'll have someone come out and assess.
+S
+Speaker 2
+03:38
+Perfect. No pricing over phone, technician assesses on-site. And for notifications — where should post-call summaries go?
+S
+Speaker 3
+03:46
+Send them to dispatch@apexfireprotection.com. That's Janet's queue and she monitors it.
+S
+Speaker 2
+03:53
+Got it. Dispatch@apexfireprotection.com for all post-call notifications. I think that covers everything. Let me get this configured and I'll send you the test number. Can we reconnect Friday at 2 PM for the final review?
+S
+Speaker 3
+04:06
+Friday at 2 works. Looking forward to testing it.
+S
+Speaker 2
+04:09
+Great. Thanks Marcus. We'll have everything ready for you.
+S
+Speaker 3
+04:13
+Sounds good. Thanks Pawan.

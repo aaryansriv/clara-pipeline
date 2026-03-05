@@ -1,0 +1,123 @@
+{
+  "account_id": "peakfire-services",
+  "company_name": "PeakFire Services",
+  "date": "2026-03-05T19:50:01.061160",
+  "version_from": "v1",
+  "version_to": "v2",
+  "changes": [
+    {
+      "field": "integration_constraints",
+      "old_value": [
+        "Uses Housecall Pro",
+        "Do not auto-create jobs for warranty inquiry calls"
+      ],
+      "new_value": [
+        "Uses Housecall Pro",
+        "Do not auto-create jobs for warranty inquiry calls",
+        "Do not create jobs for competitor research calls"
+      ]
+    },
+    {
+      "field": "non_emergency_routing_rules",
+      "old_value": null,
+      "new_value": "Politely decline competitor research calls and do not create a job. For warranty inquiries, provide email warranty@peakfireservices.com"
+    },
+    {
+      "field": "business_hours.start",
+      "old_value": null,
+      "new_value": "7:30 AM"
+    },
+    {
+      "field": "business_hours.end",
+      "old_value": null,
+      "new_value": "5:30 PM"
+    },
+    {
+      "field": "business_hours.timezone",
+      "old_value": null,
+      "new_value": "MST Denver"
+    },
+    {
+      "field": "business_hours.days",
+      "old_value": [
+        "Monday",
+        "Friday"
+      ],
+      "new_value": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ]
+    },
+    {
+      "field": "office_address",
+      "old_value": null,
+      "new_value": "4455 South Monaco Street, Denver, Colorado, 80237"
+    },
+    {
+      "field": "call_transfer_rules.message_if_fails",
+      "old_value": null,
+      "new_value": "The team has been notified and someone will call back within 20 minutes"
+    },
+    {
+      "field": "call_transfer_rules.timeout_seconds",
+      "old_value": null,
+      "new_value": 50
+    },
+    {
+      "field": "questions_or_unknowns",
+      "old_value": [
+        "Confirm business hours",
+        "Notification preferences",
+        "Special rules",
+        "Phone numbers for on-call team members"
+      ],
+      "new_value": [
+        "Phone numbers for on-call team members",
+        "Confirm pricing info",
+        "Notification preferences",
+        "Special rules",
+        "Confirm pricing structure and billing details",
+        "Confirm business hours"
+      ]
+    },
+    {
+      "field": "notification_channels",
+      "old_value": null,
+      "new_value": {
+        "email": [
+          "dispatch@peakfireservices.com",
+          "sandra@peakfireservices.com"
+        ],
+        "sms": null,
+        "webhook": null
+      }
+    },
+    {
+      "field": "emergency_definition",
+      "old_value": [
+        "Active fire",
+        "Suppression system discharge",
+        "CO alarm triggered",
+        "Panel goes offline completely"
+      ],
+      "new_value": [
+        "Active fire or smoke",
+        "Suppression system discharge",
+        "CO alarm triggered",
+        "Alarm panel completely offline"
+      ]
+    }
+  ],
+  "outstanding_items": [
+    "Phone numbers for on-call team members",
+    "Confirm pricing info",
+    "Notification preferences",
+    "Special rules",
+    "Confirm pricing structure and billing details",
+    "Confirm business hours"
+  ],
+  "llm_notes": "Updated business hours, office address, emergency definitions, and routing rules. Added non-emergency routing rules and notification channels."
+}

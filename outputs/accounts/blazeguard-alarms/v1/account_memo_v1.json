@@ -1,0 +1,72 @@
+{
+  "account_id": "blazeguard-alarms",
+  "company_name": "BlazeGuard Alarms",
+  "owner_name": "Ray Kowalski",
+  "business_hours": {
+    "days": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday"
+    ],
+    "start": "7 AM",
+    "end": "6 PM",
+    "timezone": "Central time"
+  },
+  "office_address": "4200 North Harlem Avenue, Chicago",
+  "services_supported": [
+    "alarm systems",
+    "fire suppression",
+    "access control"
+  ],
+  "emergency_definition": [
+    "alarm activation with a confirmed signal",
+    "sprinkler discharge",
+    "access control failure at a secure facility"
+  ],
+  "emergency_routing_rules": [
+    {
+      "name": "Kim",
+      "phone": null,
+      "order": 1,
+      "fallback": "escalates to Ray"
+    },
+    {
+      "name": "Pete",
+      "phone": null,
+      "order": 1,
+      "fallback": "escalates to Ray"
+    },
+    {
+      "name": "Ray",
+      "phone": "312-555-0166",
+      "order": 2,
+      "fallback": null
+    }
+  ],
+  "non_emergency_routing_rules": "routine calls can wait until morning",
+  "call_transfer_rules": {
+    "timeout_seconds": null,
+    "retries": null,
+    "message_if_fails": null
+  },
+  "integration_constraints": [
+    "Uses ServiceTrade for Chicago",
+    "Milwaukee uses spreadsheets (to be migrated to ServiceTrade in Q2)"
+  ],
+  "after_hours_flow_summary": "immediate response for emergencies, routine calls wait until morning",
+  "office_hours_flow_summary": null,
+  "pricing_info": null,
+  "notification_channels": null,
+  "questions_or_unknowns": [
+    "Kim's phone number",
+    "Pete's phone number",
+    "specific routing rules for Chicago and Milwaukee",
+    "how to handle monitoring calls in ServiceTrade"
+  ],
+  "notes": "demo call for BlazeGuard Alarms, discussed business hours, emergency response, and integration with ServiceTrade",
+  "version": "v1",
+  "created_at": "2026-03-05T19:48:25.836482",
+  "updated_at": "2026-03-05T19:48:25.836482"
+}

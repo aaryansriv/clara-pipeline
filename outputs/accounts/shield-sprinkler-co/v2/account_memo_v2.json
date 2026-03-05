@@ -1,0 +1,88 @@
+{
+  "account_id": "shield-sprinkler-co",
+  "company_name": "Shield Sprinkler Co.",
+  "owner_name": "Donna",
+  "business_hours": {
+    "days": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday"
+    ],
+    "start": "8 AM",
+    "end": "5 PM",
+    "timezone": "Mountain Standard Time"
+  },
+  "office_address": "3344 North 7th Street, Phoenix, Arizona, 85014",
+  "services_supported": [
+    "fire suppression",
+    "wet and dry pipe systems",
+    "backflow testing",
+    "annual inspections"
+  ],
+  "emergency_definition": [
+    "active water discharge from any sprinkler component",
+    "system alarm with a fault code",
+    "fire panel going completely offline"
+  ],
+  "emergency_routing_rules": [
+    {
+      "name": "Tyler",
+      "phone": "602-555-0133",
+      "order": 1,
+      "fallback": "Donna"
+    },
+    {
+      "name": "Donna",
+      "phone": "602-555-0177",
+      "order": 2,
+      "fallback": "James"
+    },
+    {
+      "name": "James",
+      "phone": "602-555-0191",
+      "order": 3,
+      "fallback": null
+    }
+  ],
+  "non_emergency_routing_rules": "Transfer directly to Donna for Desert Fire Systems calls",
+  "call_transfer_rules": {
+    "timeout_seconds": 30,
+    "retries": 3,
+    "message_if_fails": "We've been paged and someone will call back within 10 minutes."
+  },
+  "integration_constraints": [
+    "Uses ServiceTrade",
+    "no auto-create jobs for backflow testing",
+    "Recognize Desert Fire Systems as internal callers"
+  ],
+  "after_hours_flow_summary": null,
+  "office_hours_flow_summary": null,
+  "pricing_info": {
+    "service_call_fee": null,
+    "hourly_rate": null,
+    "billing_increment": null,
+    "disclose_on_request_only": true,
+    "notes": null
+  },
+  "notification_channels": {
+    "email": "office@shieldsprinkler.com",
+    "sms": null,
+    "webhook": null
+  },
+  "questions_or_unknowns": [
+    "Donna's phone number",
+    "Tyler's phone number",
+    "service_call_fee",
+    "retries",
+    "timeout rules",
+    "billing_increment",
+    "hourly_rate",
+    "message if call transfer fails"
+  ],
+  "notes": "Demo call for Shield Sprinkler Co. to discuss using Clara AI for call handling",
+  "version": "v2",
+  "created_at": "2026-03-05T19:48:16.510475",
+  "updated_at": "2026-03-05T19:49:37.648073"
+}

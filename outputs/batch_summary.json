@@ -1,0 +1,52 @@
+{
+  "batch_run_at": "2026-03-05T19:50:01.063671",
+  "pipeline_a": {
+    "total": 0,
+    "success": 0,
+    "failed": 0,
+    "results": {
+      "success": [],
+      "failed": []
+    }
+  },
+  "pipeline_b": {
+    "total": 5,
+    "success": 5,
+    "failed": 0,
+    "results": {
+      "success": [
+        {
+          "account_id": "bens-electric-solutions",
+          "pipeline": "B",
+          "company_name": "Ben's Electric Solutions",
+          "remaining_unknowns": 4
+        },
+        {
+          "account_id": "apex-fire-protection",
+          "pipeline": "B",
+          "company_name": "Apex Fire Protection",
+          "remaining_unknowns": 6
+        },
+        {
+          "account_id": "shield-sprinkler-co",
+          "pipeline": "B",
+          "company_name": "Shield Sprinkler Co.",
+          "remaining_unknowns": 8
+        },
+        {
+          "account_id": "blazeguard-alarms",
+          "pipeline": "B",
+          "company_name": "BlazeGuard Alarms",
+          "remaining_unknowns": 5
+        },
+        {
+          "account_id": "peakfire-services",
+          "pipeline": "B",
+          "company_name": "PeakFire Services",
+          "remaining_unknowns": 6
+        }
+      ],
+      "failed": []
+    }
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "account_id": "peakfire-services",
+  "company_name": "PeakFire Services",
+  "owner_name": "Sandra Torres",
+  "business_hours": {
+    "days": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday"
+    ],
+    "start": "7:30 AM",
+    "end": "5:30 PM",
+    "timezone": "MST Denver"
+  },
+  "office_address": "4455 South Monaco Street, Denver, Colorado, 80237",
+  "services_supported": [
+    "fire suppression systems",
+    "smoke and CO detectors",
+    "sprinkler inspection",
+    "annual checks"
+  ],
+  "emergency_definition": [
+    "Active fire or smoke",
+    "Suppression system discharge",
+    "CO alarm triggered",
+    "Alarm panel completely offline"
+  ],
+  "emergency_routing_rules": [
+    {
+      "name": null,
+      "phone": "720-555-0199",
+      "order": 1,
+      "fallback": null
+    }
+  ],
+  "non_emergency_routing_rules": "Politely decline competitor research calls and do not create a job. For warranty inquiries, provide email warranty@peakfireservices.com",
+  "call_transfer_rules": {
+    "timeout_seconds": 50,
+    "retries": null,
+    "message_if_fails": "The team has been notified and someone will call back within 20 minutes"
+  },
+  "integration_constraints": [
+    "Uses Housecall Pro",
+    "Do not auto-create jobs for warranty inquiry calls",
+    "Do not create jobs for competitor research calls"
+  ],
+  "after_hours_flow_summary": null,
+  "office_hours_flow_summary": null,
+  "pricing_info": null,
+  "notification_channels": {
+    "email": [
+      "dispatch@peakfireservices.com",
+      "sandra@peakfireservices.com"
+    ],
+    "sms": null,
+    "webhook": null
+  },
+  "questions_or_unknowns": [
+    "Phone numbers for on-call team members",
+    "Confirm pricing info",
+    "Notification preferences",
+    "Special rules",
+    "Confirm pricing structure and billing details",
+    "Confirm business hours"
+  ],
+  "notes": "Demo call for PeakFire Services, discussed emergency routing and integration with Housecall Pro",
+  "version": "v2",
+  "created_at": "2026-03-05T19:48:36.886033",
+  "updated_at": "2026-03-05T19:50:01.046263"
+}

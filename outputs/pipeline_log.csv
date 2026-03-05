@@ -1,0 +1,12 @@
+account_id,company_name,pipeline,status,timestamp,unknowns,notes
+apex-fire-protection,Apex Fire Protection,A,v1 Ready,2026-03-05 19:47 UTC,6,Demo call for Apex Fire Protection, discussed emergency routing and ServiceTrade integration
+bens-electric-solutions,,A,v1 Ready,2026-03-05 19:48 UTC,3,Demo call to discuss AI-powered virtual receptionist for electrical contracting business
+apex-fire-protection,Apex Fire Protection,A,v1 Ready,2026-03-05 19:48 UTC,6,Demo call for Apex Fire Protection, discussed emergency definitions, routing rules, and ServiceTrade integration
+shield-sprinkler-co,Shield Sprinkler Co.,A,v1 Ready,2026-03-05 19:48 UTC,5,Demo call for Shield Sprinkler Co. to discuss using Clara AI for call handling
+blazeguard-alarms,BlazeGuard Alarms,A,v1 Ready,2026-03-05 19:48 UTC,4,demo call for BlazeGuard Alarms, discussed business hours, emergency response, and integration with ServiceTrade
+peakfire-services,PeakFire Services,A,v1 Ready,2026-03-05 19:48 UTC,4,Demo call for PeakFire Services, discussed emergency routing and integration with Housecall Pro
+bens-electric-solutions,Ben's Electric Solutions,B,v2 Ready,2026-03-05 19:49 UTC,4,Onboarding complete. Changelog generated.
+apex-fire-protection,Apex Fire Protection,B,v2 Ready,2026-03-05 19:49 UTC,6,Onboarding complete. Changelog generated.
+shield-sprinkler-co,Shield Sprinkler Co.,B,v2 Ready,2026-03-05 19:49 UTC,8,Onboarding complete. Changelog generated.
+blazeguard-alarms,BlazeGuard Alarms,B,v2 Ready,2026-03-05 19:49 UTC,5,Onboarding complete. Changelog generated.
+peakfire-services,PeakFire Services,B,v2 Ready,2026-03-05 19:50 UTC,6,Onboarding complete. Changelog generated.

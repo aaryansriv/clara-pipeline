@@ -1,0 +1,89 @@
+{
+  "account_id": "apex-fire-protection",
+  "company_name": "Apex Fire Protection",
+  "owner_name": "Marcus",
+  "business_hours": {
+    "days": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday"
+    ],
+    "start": "7:30",
+    "end": "5:00",
+    "timezone": "Central"
+  },
+  "office_address": "8820 Westpark Drive, Suite 200, Houston, Texas 77063",
+  "services_supported": [
+    "fire suppression systems",
+    "sprinkler installation",
+    "alarm monitoring",
+    "extinguisher service",
+    "inspections"
+  ],
+  "emergency_definition": [
+    "active sprinkler discharge",
+    "fire alarm triggered",
+    "CO alarm going off",
+    "active life safety event",
+    "panel fault"
+  ],
+  "emergency_routing_rules": [
+    {
+      "name": "Janet",
+      "phone": "713-555-0142",
+      "order": 1,
+      "fallback": "Marcus"
+    },
+    {
+      "name": "Marcus",
+      "phone": "713-555-0198",
+      "order": 2,
+      "fallback": "Dave"
+    },
+    {
+      "name": "Dave",
+      "phone": "713-555-0207",
+      "order": 3,
+      "fallback": null
+    }
+  ],
+  "non_emergency_routing_rules": "Janet handles non-emergency calls during the day, and Marcus steps in when she's not available",
+  "call_transfer_rules": {
+    "timeout_seconds": 45,
+    "retries": 1,
+    "message_if_fails": "Our team has been paged and someone will call back within 15 minutes. If it's an active fire situation, please call 911 immediately."
+  },
+  "integration_constraints": [
+    "Uses ServiceTrade",
+    "Do not auto-create sprinkler or suppression jobs",
+    "Do not log alarm monitoring calls as service jobs"
+  ],
+  "after_hours_flow_summary": "Clara handles initial screening and routing",
+  "office_hours_flow_summary": "Janet handles incoming calls and dispatching during the day",
+  "pricing_info": {
+    "service_call_fee": null,
+    "hourly_rate": null,
+    "billing_increment": null,
+    "disclose_on_request_only": true,
+    "notes": null
+  },
+  "notification_channels": {
+    "email": "dispatch@apexfireprotection.com",
+    "sms": null,
+    "webhook": null
+  },
+  "questions_or_unknowns": [
+    "Marcus' phone number",
+    "Dave's phone number",
+    "Janet's phone number",
+    "timeouts",
+    "office address",
+    "exact routing rules"
+  ],
+  "notes": "Demo call for Apex Fire Protection, discussed emergency definitions, routing rules, and ServiceTrade integration",
+  "version": "v2",
+  "created_at": "2026-03-05T19:48:13.539236",
+  "updated_at": "2026-03-05T19:49:26.343997"
+}

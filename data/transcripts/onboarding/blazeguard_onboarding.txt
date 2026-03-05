@@ -1,0 +1,112 @@
+S
+Speaker 1
+00:02
+Ray, welcome back. Pawan here for your onboarding session.
+S
+Speaker 3
+00:07
+Hey Pawan. Let's make this quick — I've got a tech out sick and I'm juggling schedules.
+S
+Speaker 2
+00:12
+Understood, we'll keep it tight. Let's confirm business hours first. Monday to Friday, 7 to 6 Central. Still correct?
+S
+Speaker 3
+00:19
+Yep. Same for both locations. 7 AM to 6 PM, Central Standard Time.
+S
+Speaker 2
+00:24
+Perfect. Office addresses?
+S
+Speaker 3
+00:26
+Chicago is 2211 West Fulton Street. Milwaukee is 890 North Plankinton Avenue.
+S
+Speaker 2
+00:35
+Got both of those. Now routing. Let's nail down the numbers. Kim first?
+S
+Speaker 3
+00:39
+Kim is 312-555-0144. She handles Chicago dispatch. Then Derek — he's our ops manager, I want him in the chain too. His number is 312-555-0155. And then me, Ray, 312-555-0166.
+S
+Speaker 2
+00:56
+Wait, Derek is new. He wasn't mentioned on the demo call.
+S
+Speaker 3
+00:59
+Yeah, I promoted him after our demo call. He's the right person between Kim and me. So the chain is Kim, then Derek, then me.
+S
+Speaker 2
+01:09
+Got it. Kim at 312-555-0144, Derek at 312-555-0155, Ray at 312-555-0166. Three-person chain. What about Milwaukee routing?
+S
+Speaker 3
+01:20
+For now, Milwaukee calls that come after hours — just collect the info and email it to milwaukee@blazeguardalarms.com. Pete can handle it from there the next morning. Until we get ServiceTrade set up for Milwaukee, that's the simplest approach.
+S
+Speaker 2
+01:37
+Makes sense. Milwaukee after-hours goes to email at milwaukee@blazeguardalarms.com. What about transfer timeout?
+S
+Speaker 3
+01:44
+40 seconds. That gives people enough time to pick up without leaving the caller waiting too long.
+S
+Speaker 2
+01:51
+40 seconds per person. And if all three miss it?
+S
+Speaker 3
+01:55
+Tell the caller our team has been paged and someone will call back within 15 minutes. And if it's an active fire — make absolutely sure Clara tells them to call 911. That's non-negotiable.
+S
+Speaker 2
+02:09
+Understood. Fallback includes 911 recommendation for active fire situations. Same as we discussed with another client actually. Now emergency definitions — you said alarm activation with confirmed signal, sprinkler discharge, and access control failure. Anything to update?
+S
+Speaker 3
+02:24
+No, those three are still correct. Just make sure it's "confirmed signal" for alarms. We don't dispatch on false alarms. If the monitoring company hasn't confirmed it, it's not an emergency.
+S
+Speaker 2
+02:37
+Got it. Only confirmed alarm signals trigger emergency routing. ServiceTrade rules — monitoring calls not as jobs. Anything else?
+S
+Speaker 3
+02:45
+Nope. And remember, Milwaukee has no ServiceTrade yet. Just email for Milwaukee.
+S
+Speaker 2
+02:51
+Clear. Pricing policy?
+S
+Speaker 3
+02:53
+No quotes over the phone. Period.
+S
+Speaker 2
+02:56
+And where should post-call notifications go?
+S
+Speaker 3
+02:59
+Alerts@blazeguardalarms.com. That goes to both me and Kim.
+S
+Speaker 2
+03:04
+Perfect. I've got everything I need. I'll configure this today and send you the test number. Can we do a review call Thursday?
+S
+Speaker 3
+03:12
+Thursday works. Morning if possible.
+S
+Speaker 2
+03:15
+Thursday morning at 9. Done. Thanks Ray.
+S
+Speaker 3
+03:18
+Thanks Pawan. Appreciate the efficiency.

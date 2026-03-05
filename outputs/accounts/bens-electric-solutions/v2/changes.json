@@ -1,0 +1,105 @@
+{
+  "account_id": "bens-electric-solutions",
+  "company_name": "Ben's Electric Solutions",
+  "date": "2026-03-05T19:49:13.205684",
+  "version_from": "v1",
+  "version_to": "v2",
+  "changes": [
+    {
+      "field": "business_hours.start",
+      "old_value": null,
+      "new_value": "8:00 AM"
+    },
+    {
+      "field": "business_hours.end",
+      "old_value": null,
+      "new_value": "4:30 PM"
+    },
+    {
+      "field": "business_hours.days",
+      "old_value": [],
+      "new_value": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ]
+    },
+    {
+      "field": "company_name",
+      "old_value": "",
+      "new_value": "Ben's Electric Solutions"
+    },
+    {
+      "field": "office_hours_flow_summary",
+      "old_value": null,
+      "new_value": "Answer calls, forward to Ben if necessary"
+    },
+    {
+      "field": "after_hours_flow_summary",
+      "old_value": null,
+      "new_value": "Forward calls from GNM Pressure Washing to Ben"
+    },
+    {
+      "field": "pricing_info",
+      "old_value": null,
+      "new_value": {
+        "service_call_fee": "$115",
+        "hourly_rate": "$98",
+        "billing_increment": "half hour increments",
+        "disclose_on_request_only": true,
+        "notes": null
+      }
+    },
+    {
+      "field": "questions_or_unknowns",
+      "old_value": [
+        "How to handle emergency calls after hours",
+        "How to integrate with existing phone system",
+        "How to configure AI to ask questions on how to handle certain calls"
+      ],
+      "new_value": [
+        "How to handle emergency calls after hours for other clients",
+        "How to integrate with existing phone system",
+        "How to configure AI to ask questions on how to handle certain calls",
+        "How to handle emergency calls after hours"
+      ]
+    },
+    {
+      "field": "notification_channels",
+      "old_value": null,
+      "new_value": {
+        "email": "info@benselectricsolutionsteam.com",
+        "sms": "403-975-1773",
+        "webhook": null
+      }
+    },
+    {
+      "field": "emergency_routing_rules",
+      "old_value": [
+        {
+          "name": "Ben",
+          "phone": "403-975-1773",
+          "order": 1,
+          "fallback": null
+        }
+      ],
+      "new_value": [
+        {
+          "name": "Shelley from GNM Pressure Washing",
+          "phone": null,
+          "order": 1,
+          "fallback": "Ben"
+        }
+      ]
+    }
+  ],
+  "outstanding_items": [
+    "How to handle emergency calls after hours for other clients",
+    "How to integrate with existing phone system",
+    "How to configure AI to ask questions on how to handle certain calls",
+    "How to handle emergency calls after hours"
+  ],
+  "llm_notes": "Updated business hours, emergency routing rules, pricing info, and notification channels"
+}

@@ -1,0 +1,146 @@
+{
+  "account_id": "shield-sprinkler-co",
+  "company_name": "Shield Sprinkler Co.",
+  "date": "2026-03-05T19:49:37.650937",
+  "version_from": "v1",
+  "version_to": "v2",
+  "changes": [
+    {
+      "field": "integration_constraints",
+      "old_value": [
+        "Uses ServiceTrade",
+        "no auto-create jobs for backflow testing"
+      ],
+      "new_value": [
+        "Uses ServiceTrade",
+        "no auto-create jobs for backflow testing",
+        "Recognize Desert Fire Systems as internal callers"
+      ]
+    },
+    {
+      "field": "non_emergency_routing_rules",
+      "old_value": null,
+      "new_value": "Transfer directly to Donna for Desert Fire Systems calls"
+    },
+    {
+      "field": "office_address",
+      "old_value": null,
+      "new_value": "3344 North 7th Street, Phoenix, Arizona, 85014"
+    },
+    {
+      "field": "pricing_info",
+      "old_value": null,
+      "new_value": {
+        "service_call_fee": null,
+        "hourly_rate": null,
+        "billing_increment": null,
+        "disclose_on_request_only": true,
+        "notes": null
+      }
+    },
+    {
+      "field": "call_transfer_rules.retries",
+      "old_value": null,
+      "new_value": 3
+    },
+    {
+      "field": "call_transfer_rules.message_if_fails",
+      "old_value": null,
+      "new_value": "We've been paged and someone will call back within 10 minutes."
+    },
+    {
+      "field": "call_transfer_rules.timeout_seconds",
+      "old_value": null,
+      "new_value": 30
+    },
+    {
+      "field": "questions_or_unknowns",
+      "old_value": [
+        "Tyler's phone number",
+        "Donna's phone number",
+        "timeout rules",
+        "retries",
+        "message if call transfer fails"
+      ],
+      "new_value": [
+        "Donna's phone number",
+        "Tyler's phone number",
+        "service_call_fee",
+        "retries",
+        "timeout rules",
+        "billing_increment",
+        "hourly_rate",
+        "message if call transfer fails"
+      ]
+    },
+    {
+      "field": "notification_channels",
+      "old_value": null,
+      "new_value": {
+        "email": "office@shieldsprinkler.com",
+        "sms": null,
+        "webhook": null
+      }
+    },
+    {
+      "field": "emergency_routing_rules",
+      "old_value": [
+        {
+          "name": "Tyler",
+          "phone": null,
+          "order": 1,
+          "fallback": "Donna"
+        },
+        {
+          "name": "Donna",
+          "phone": null,
+          "order": 2,
+          "fallback": null
+        }
+      ],
+      "new_value": [
+        {
+          "name": "Tyler",
+          "phone": "602-555-0133",
+          "order": 1,
+          "fallback": "Donna"
+        },
+        {
+          "name": "Donna",
+          "phone": "602-555-0177",
+          "order": 2,
+          "fallback": "James"
+        },
+        {
+          "name": "James",
+          "phone": "602-555-0191",
+          "order": 3,
+          "fallback": null
+        }
+      ]
+    },
+    {
+      "field": "emergency_definition",
+      "old_value": [
+        "active sprinkler discharge",
+        "major panel fault"
+      ],
+      "new_value": [
+        "active water discharge from any sprinkler component",
+        "system alarm with a fault code",
+        "fire panel going completely offline"
+      ]
+    }
+  ],
+  "outstanding_items": [
+    "Donna's phone number",
+    "Tyler's phone number",
+    "service_call_fee",
+    "retries",
+    "timeout rules",
+    "billing_increment",
+    "hourly_rate",
+    "message if call transfer fails"
+  ],
+  "llm_notes": "Updated emergency definitions, added James as third in the on-call chain, defined call transfer rules, and specified integration constraints and notification channels."
+}
