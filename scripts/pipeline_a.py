@@ -179,7 +179,7 @@ def run_pipeline_a(transcript_path: str, account_id: str = None):
     logger.info("Step 4: Saving outputs...")
     output_dir = save_outputs(memo, agent_spec, account_id)
 
-    # Step 6: Sync to integrations (Trello, Sheets)
+    # Step 6: Sync to integrations (Sheets + Task Tracker)
     logger.info("Step 5: Syncing to integrations...")
     try:
         from sheets_integration import sync_account_to_sheets
@@ -195,16 +195,17 @@ def run_pipeline_a(transcript_path: str, account_id: str = None):
         logger.debug("Sheets sync skipped: %s", e)
 
     try:
-        from trello_integration import create_pipeline_card
-        create_pipeline_card(
+        from task_tracker import update_task
+        update_task(
             account_id=account_id,
             company_name=memo.company_name,
             pipeline="A",
+            status="v1 Ready",
             unknowns_count=len(memo.questions_or_unknowns),
             notes=memo.notes or "",
         )
     except Exception as e:
-        logger.debug("Trello sync skipped: %s", e)
+        logger.debug("Task tracker skipped: %s", e)
 
     logger.info("=" * 60)
     logger.info("✅ Pipeline A complete!")

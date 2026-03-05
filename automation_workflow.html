@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Clara Pipeline — Automation Workflow</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
   <style>
     :root {
       --bg-dark: #0a0e1a;
@@ -28,7 +30,11 @@
       --red: #ef4444;
     }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
     body {
       font-family: 'Inter', sans-serif;
@@ -42,11 +48,14 @@
     body::before {
       content: '';
       position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: 
-        radial-gradient(ellipse at 20% 20%, rgba(99,102,241,0.08) 0%, transparent 50%),
-        radial-gradient(ellipse at 80% 80%, rgba(34,197,94,0.06) 0%, transparent 50%),
-        radial-gradient(ellipse at 50% 50%, rgba(6,182,212,0.04) 0%, transparent 60%);
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background:
+        radial-gradient(ellipse at 20% 20%, rgba(99, 102, 241, 0.08) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 80%, rgba(34, 197, 94, 0.06) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 50%, rgba(6, 182, 212, 0.04) 0%, transparent 60%);
       z-index: 0;
       pointer-events: none;
     }
@@ -113,10 +122,21 @@
       margin-top: 0.3rem;
     }
 
-    .stat-value.green { color: var(--green); }
-    .stat-value.blue { color: var(--blue); }
-    .stat-value.orange { color: var(--orange); }
-    .stat-value.accent { color: var(--accent); }
+    .stat-value.green {
+      color: var(--green);
+    }
+
+    .stat-value.blue {
+      color: var(--blue);
+    }
+
+    .stat-value.orange {
+      color: var(--orange);
+    }
+
+    .stat-value.accent {
+      color: var(--accent);
+    }
 
     /* Section titles */
     .section-title {
@@ -155,7 +175,9 @@
     .workflow-graph::before {
       content: '';
       position: absolute;
-      top: 0; left: 0; right: 0;
+      top: 0;
+      left: 0;
+      right: 0;
       height: 3px;
       background: linear-gradient(90deg, var(--accent), var(--cyan), var(--green));
     }
@@ -190,8 +212,13 @@
       color: var(--text-muted);
     }
 
-    .pipeline-label.a h3 { color: var(--cyan); }
-    .pipeline-label.b h3 { color: var(--green); }
+    .pipeline-label.a h3 {
+      color: var(--cyan);
+    }
+
+    .pipeline-label.b h3 {
+      color: var(--green);
+    }
 
     .nodes-track {
       display: flex;
@@ -240,16 +267,50 @@
       line-height: 1.3;
     }
 
-    .node.trigger { border-color: var(--orange); }
-    .node.trigger:hover { box-shadow: 0 8px 24px var(--orange-glow); border-color: var(--orange); }
-    .node.action { border-color: var(--blue); }
-    .node.action:hover { box-shadow: 0 8px 24px var(--blue-glow); border-color: var(--blue); }
-    .node.llm { border-color: var(--accent); }
-    .node.llm:hover { box-shadow: 0 8px 24px var(--accent-glow); border-color: var(--accent); }
-    .node.output { border-color: var(--green); }
-    .node.output:hover { box-shadow: 0 8px 24px var(--green-glow); border-color: var(--green); }
-    .node.notify { border-color: var(--pink); }
-    .node.notify:hover { box-shadow: 0 8px 24px var(--pink-glow); border-color: var(--pink); }
+    .node.trigger {
+      border-color: var(--orange);
+    }
+
+    .node.trigger:hover {
+      box-shadow: 0 8px 24px var(--orange-glow);
+      border-color: var(--orange);
+    }
+
+    .node.action {
+      border-color: var(--blue);
+    }
+
+    .node.action:hover {
+      box-shadow: 0 8px 24px var(--blue-glow);
+      border-color: var(--blue);
+    }
+
+    .node.llm {
+      border-color: var(--accent);
+    }
+
+    .node.llm:hover {
+      box-shadow: 0 8px 24px var(--accent-glow);
+      border-color: var(--accent);
+    }
+
+    .node.output {
+      border-color: var(--green);
+    }
+
+    .node.output:hover {
+      box-shadow: 0 8px 24px var(--green-glow);
+      border-color: var(--green);
+    }
+
+    .node.notify {
+      border-color: var(--pink);
+    }
+
+    .node.notify:hover {
+      box-shadow: 0 8px 24px var(--pink-glow);
+      border-color: var(--pink);
+    }
 
     .arrow {
       display: flex;
@@ -326,13 +387,13 @@
     .zap-badge.active {
       background: var(--green-glow);
       color: var(--green);
-      border: 1px solid rgba(34,197,94,0.3);
+      border: 1px solid rgba(34, 197, 94, 0.3);
     }
 
     .zap-badge.ready {
       background: var(--orange-glow);
       color: var(--orange);
-      border: 1px solid rgba(245,158,11,0.3);
+      border: 1px solid rgba(245, 158, 11, 0.3);
     }
 
     .zap-steps {
@@ -371,10 +432,25 @@
       z-index: 1;
     }
 
-    .step-number.trigger-step { background: var(--orange); color: #000; }
-    .step-number.action-step { background: var(--blue); color: #fff; }
-    .step-number.code-step { background: var(--accent); color: #fff; }
-    .step-number.notify-step { background: var(--pink); color: #fff; }
+    .step-number.trigger-step {
+      background: var(--orange);
+      color: #000;
+    }
+
+    .step-number.action-step {
+      background: var(--blue);
+      color: #fff;
+    }
+
+    .step-number.code-step {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .step-number.notify-step {
+      background: var(--pink);
+      color: #fff;
+    }
 
     .step-content h4 {
       font-size: 0.8rem;
@@ -391,7 +467,7 @@
     .step-content .app-tag {
       display: inline-block;
       padding: 0.1rem 0.5rem;
-      background: rgba(99,102,241,0.15);
+      background: rgba(99, 102, 241, 0.15);
       color: var(--accent);
       border-radius: 4px;
       font-size: 0.65rem;
@@ -426,12 +502,30 @@
       border-radius: 50%;
     }
 
-    .tool-badge .dot.green { background: var(--green); box-shadow: 0 0 8px var(--green-glow); }
-    .tool-badge .dot.blue { background: var(--blue); }
-    .tool-badge .dot.orange { background: var(--orange); }
-    .tool-badge .dot.accent { background: var(--accent); }
-    .tool-badge .dot.cyan { background: var(--cyan); }
-    .tool-badge .dot.pink { background: var(--pink); }
+    .tool-badge .dot.green {
+      background: var(--green);
+      box-shadow: 0 0 8px var(--green-glow);
+    }
+
+    .tool-badge .dot.blue {
+      background: var(--blue);
+    }
+
+    .tool-badge .dot.orange {
+      background: var(--orange);
+    }
+
+    .tool-badge .dot.accent {
+      background: var(--accent);
+    }
+
+    .tool-badge .dot.cyan {
+      background: var(--cyan);
+    }
+
+    .tool-badge .dot.pink {
+      background: var(--pink);
+    }
 
     /* Execution log */
     .exec-log {
@@ -474,7 +568,7 @@
     .log-table td {
       padding: 0.8rem 1.5rem;
       font-size: 0.8rem;
-      border-bottom: 1px solid rgba(30,41,59,0.5);
+      border-bottom: 1px solid rgba(30, 41, 59, 0.5);
     }
 
     .log-table tr:hover td {
@@ -495,13 +589,30 @@
       border-radius: 50%;
     }
 
-    .status-dot.success::before { background: var(--green); box-shadow: 0 0 6px var(--green-glow); }
-    .status-dot.pending::before { background: var(--orange); }
-    .status-dot.running::before { background: var(--blue); animation: pulse 1.5s infinite; }
+    .status-dot.success::before {
+      background: var(--green);
+      box-shadow: 0 0 6px var(--green-glow);
+    }
+
+    .status-dot.pending::before {
+      background: var(--orange);
+    }
+
+    .status-dot.running::before {
+      background: var(--blue);
+      animation: pulse 1.5s infinite;
+    }
 
     @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.4; }
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.4;
+      }
     }
 
     /* Cost analysis */
@@ -541,11 +652,28 @@
 
     /* Responsive */
     @media (max-width: 900px) {
-      .nodes-track { flex-wrap: wrap; gap: 0.5rem; }
-      .arrow { display: none; }
-      .pipeline-label { width: 100%; padding-bottom: 0.5rem; }
-      .pipeline-row { flex-direction: column; align-items: flex-start; }
-      .zap-grid { grid-template-columns: 1fr; }
+      .nodes-track {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+
+      .arrow {
+        display: none;
+      }
+
+      .pipeline-label {
+        width: 100%;
+        padding-bottom: 0.5rem;
+      }
+
+      .pipeline-row {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .zap-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     /* Animations */
@@ -556,13 +684,27 @@
     }
 
     @keyframes fadeInUp {
-      to { opacity: 1; transform: translateY(0); }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
-    .fade-in:nth-child(2) { animation-delay: 0.1s; }
-    .fade-in:nth-child(3) { animation-delay: 0.2s; }
-    .fade-in:nth-child(4) { animation-delay: 0.3s; }
-    .fade-in:nth-child(5) { animation-delay: 0.4s; }
+    .fade-in:nth-child(2) {
+      animation-delay: 0.1s;
+    }
+
+    .fade-in:nth-child(3) {
+      animation-delay: 0.2s;
+    }
+
+    .fade-in:nth-child(4) {
+      animation-delay: 0.3s;
+    }
+
+    .fade-in:nth-child(5) {
+      animation-delay: 0.4s;
+    }
 
     /* Data flow animation */
     .data-flow {
@@ -578,10 +720,23 @@
     }
 
     @keyframes flowRight {
-      0% { left: 0; opacity: 0; }
-      10% { opacity: 1; }
-      90% { opacity: 1; }
-      100% { left: 100%; opacity: 0; }
+      0% {
+        left: 0;
+        opacity: 0;
+      }
+
+      10% {
+        opacity: 1;
+      }
+
+      90% {
+        opacity: 1;
+      }
+
+      100% {
+        left: 100%;
+        opacity: 0;
+      }
     }
 
     footer {
@@ -597,6 +752,7 @@
     }
   </style>
 </head>
+
 <body>
   <div class="container">
     <header class="fade-in">
@@ -630,7 +786,7 @@
       <div class="tool-badge"><span class="dot accent"></span> Groq LLaMA 3.3 70B</div>
       <div class="tool-badge"><span class="dot cyan"></span> Groq Whisper</div>
       <div class="tool-badge"><span class="dot green"></span> Google Sheets</div>
-      <div class="tool-badge"><span class="dot blue"></span> Trello</div>
+      <div class="tool-badge"><span class="dot blue"></span> GitHub</div>
       <div class="tool-badge"><span class="dot pink"></span> Retell (Agent Output)</div>
     </div>
 
@@ -681,8 +837,8 @@
             <div class="arrow"></div>
             <div class="node notify">
               <div class="node-icon">📊</div>
-              <div class="node-title">Log & Notify</div>
-              <div class="node-desc">Sheets + Trello<br>→ v1 Ready card</div>
+              <div class="node-title">Log & Track</div>
+              <div class="node-desc">Sheets log +<br>Task tracker</div>
             </div>
           </div>
         </div>
@@ -727,7 +883,7 @@
             <div class="node notify">
               <div class="node-icon">✅</div>
               <div class="node-title">Update Status</div>
-              <div class="node-desc">Sheets + Trello<br>→ v2 Live card</div>
+              <div class="node-desc">Sheets log +<br>Task → v2 Live</div>
             </div>
           </div>
         </div>
@@ -783,9 +939,9 @@
           <div class="zap-step">
             <div class="step-number notify-step">5</div>
             <div class="step-content">
-              <h4>Action: Create Trello Card</h4>
-              <p>Board: Clara Pipeline → List: v1 Ready → Label: Yellow</p>
-              <span class="app-tag">Trello</span>
+              <h4>Action: Update Task Tracker</h4>
+              <p>Create task → Status: v1 Ready → Track unknowns</p>
+              <span class="app-tag">Google Sheets (Tasks tab)</span>
             </div>
           </div>
         </div>
@@ -833,9 +989,9 @@
           <div class="zap-step">
             <div class="step-number notify-step">5</div>
             <div class="step-content">
-              <h4>Action: Move Trello Card</h4>
-              <p>Find card → Move to v2 Live list → Add changelog comment</p>
-              <span class="app-tag">Trello</span>
+              <h4>Action: Update Task Status</h4>
+              <p>Find account → Update to v2 Live → Append changelog</p>
+              <span class="app-tag">Google Sheets (Tasks tab)</span>
             </div>
           </div>
         </div>
@@ -891,9 +1047,9 @@
         <div class="cost-detail">1 spreadsheet, 10 rows<br>Free: 5M cells</div>
       </div>
       <div class="cost-card">
-        <h4>Trello</h4>
+        <h4>Task Tracker</h4>
         <div class="cost-value">$0</div>
-        <div class="cost-detail">1 board, 5 cards<br>Free: unlimited boards</div>
+        <div class="cost-detail">Local JSON + optional Sheets<br>No extra credentials needed</div>
       </div>
       <div class="cost-card">
         <h4>Total Monthly</h4>
@@ -903,7 +1059,7 @@
     </div>
 
     <footer>
-      Clara Pipeline Automation · Built with Zapier × Groq × Google Sheets × Trello · 
+      Clara Pipeline Automation · Built with Zapier × Groq × Google Sheets × Trello ·
       <a href="dashboard.html">View Agent Dashboard →</a>
     </footer>
   </div>
@@ -925,12 +1081,12 @@
 
     const tbody = document.getElementById('logBody');
     execData.forEach(row => {
-      const pipelineLabel = row.pipeline === 'A' 
-        ? '<span style="color: var(--cyan)">Demo → v1</span>' 
+      const pipelineLabel = row.pipeline === 'A'
+        ? '<span style="color: var(--cyan)">Demo → v1</span>'
         : '<span style="color: var(--green)">Onboarding → v2</span>';
-      
+
       const statusHTML = `<span class="status-dot ${row.status}">${row.status === 'success' ? '✓ Success' : '⏳ Running'}</span>`;
-      
+
       const tr = document.createElement('tr');
       tr.innerHTML = `
         <td><strong>${row.account}</strong></td>
@@ -944,4 +1100,5 @@
     });
   </script>
 </body>
+
 </html>

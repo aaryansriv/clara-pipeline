@@ -287,16 +287,17 @@ def run_pipeline_b(transcript_path: str, account_id: str):
         logger.debug("Sheets sync skipped: %s", e)
 
     try:
-        from trello_integration import create_pipeline_card
-        create_pipeline_card(
+        from task_tracker import update_task
+        update_task(
             account_id=account_id,
             company_name=v2_memo.company_name,
             pipeline="B",
+            status="v2 Live",
             unknowns_count=len(v2_memo.questions_or_unknowns),
             notes="v2 agent generated from onboarding call.",
         )
     except Exception as e:
-        logger.debug("Trello sync skipped: %s", e)
+        logger.debug("Task tracker skipped: %s", e)
 
     logger.info("=" * 60)
     logger.info("✅ Pipeline B complete!")
