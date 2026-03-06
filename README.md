@@ -37,7 +37,7 @@ Zero-cost, end-to-end automation that converts sales/onboarding call transcripts
                                  │
                     ┌────────────▼───────────┐
                     │  Google Sheets (log)   │
-                    │  Trello (task cards)   │
+                    │  Task Tracker (JSON)   │
                     │  dashboard.html (UI)   │
                     └────────────────────────┘
 ```
@@ -50,7 +50,7 @@ Zero-cost, end-to-end automation that converts sales/onboarding call transcripts
 | **LLM Extraction** | Groq LLaMA 3.3 70B (free) | Fast, accurate, generous free tier | $0 |
 | **Transcription** | Groq Whisper (free) | Same API key, handles audio files | $0 |
 | **Storage** | GitHub repo + local JSON | Version-controlled, zero setup | $0 |
-| **Task Tracking** | Trello (free) | Zapier native integration, unlimited cards | $0 |
+| **Task Tracking** | Google Sheets + JSON | Same sheet, no extra credentials | $0 |
 | **Reporting** | Google Sheets (free) | Easy tracking + sharing | $0 |
 | **Retell** | Agent Spec JSON (mocked) | Free tier can't call Retell API | $0 |
 | **Dashboard** | Static HTML | No server needed, opens in any browser | $0 |
@@ -79,10 +79,8 @@ export GROQ_API_KEY=your_groq_api_key_here
 export GOOGLE_SHEETS_CREDENTIALS=/path/to/service-account.json
 export GOOGLE_SHEET_ID=your_spreadsheet_id
 
-# Optional — Trello integration
-export TRELLO_API_KEY=your_trello_key
-export TRELLO_TOKEN=your_trello_token
-export TRELLO_BOARD_ID=your_board_id
+# No other credentials needed!
+# Task tracking uses local JSON + optional Google Sheets tab
 ```
 
 Get a free Groq API key at: https://console.groq.com
@@ -125,7 +123,7 @@ clara-pipeline/
 │   ├── pipeline_b.py          # Onboarding Call → v2 agent
 │   ├── batch_run.py           # Batch runner for all 10 files
 │   ├── sheets_integration.py  # Google Sheets sync (with CSV fallback)
-│   └── trello_integration.py  # Trello task tracking (with local fallback)
+│   └── task_tracker.py        # Task tracking (local JSON + optional Sheets)
 ├── data/
 │   └── transcripts/
 │       ├── demo/              # 5 demo call transcripts
@@ -253,13 +251,13 @@ See `workflows/zapier_workflow.md` for the full Zapier setup.
 **Zap A** (Pipeline A trigger):
 - Trigger: New file in Google Drive `demo-transcripts/`
 - Action 1: Run extraction via Code by Zapier
-- Action 2: Create Trello card → "v1 Ready"
+- Action 2: Update task tracker → "v1 Ready"
 - Action 3: Log to Google Sheets
 
 **Zap B** (Pipeline B trigger):
 - Trigger: New file in Google Drive `onboarding-transcripts/`
 - Action 1: Run Pipeline B via Code by Zapier
-- Action 2: Update Trello card → "v2 Live"
+- Action 2: Update task tracker → "v2 Live"
 - Action 3: Update Google Sheets row
 
 ---
