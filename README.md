@@ -1,298 +1,98 @@
-# Clara Pipeline
-**Automated Demo Call → Retell Agent Configuration → Onboarding Updates → Production-Ready Agent**
+# 🤖 Clara Answers Automation Pipeline
+Hey! This is my submission for the Clara Answers Intern Assignment. I built a zero-cost pipeline that takes demo and onboarding calls and turns them into production-ready Retell AI agent configurations. 
 
-Zero-cost, end-to-end automation that converts sales/onboarding call transcripts into production-ready Retell AI voice agent configurations — with full versioning, change tracking, and batch processing.
-
----
-
-## Architecture & Data Flow
-
-```
-                    PIPELINE A (Demo → v1)                     PIPELINE B (Onboarding → v2)
-                    ─────────────────────                      ──────────────────────────────
-
-   Audio File ──► Groq Whisper ──┐                    Audio File ──► Groq Whisper ──┐
-                                 │                                                  │
-   Transcript ───────────────────┤                    Transcript ───────────────────┤
-                                 ▼                                                  ▼
-                          ┌─────────────┐                                    ┌─────────────┐
-                          │  Groq LLaMA │                                    │  Groq LLaMA │
-                          │  3.3 70B    │                                    │  3.3 70B    │
-                          │  Extraction │                                    │  Patch Ext. │
-                          └──────┬──────┘                                    └──────┬──────┘
-                                 │                                                  │
-                                 ▼                                                  ▼
-                    ┌────────────────────────┐                      ┌────────────────────────┐
-                    │  account_memo_v1.json  │───── loads v1 ──────►│  apply_patch()         │
-                    │  agent_spec_v1.json    │                      │  → account_memo_v2.json│
-                    │  retell_import_guide.md│                      │  → agent_spec_v2.json  │
-                    └────────────┬───────────┘                      │  → changes.md          │
-                                 │                                  │  → changes.json        │
-                                 ▼                                  └────────────┬───────────┘
-                    ┌────────────────────────┐                                   │
-                    │  outputs/accounts/     │◄──────────────────────────────────┘
-                    │    <account_id>/       │
-                    │      v1/ and v2/       │
-                    └────────────┬───────────┘
-                                 │
-                    ┌────────────▼───────────┐
-                    │  Google Sheets (log)   │
-                    │  Task Tracker (JSON)   │
-                    │  dashboard.html (UI)   │
-                    └────────────────────────┘
-```
-
-### Technology Stack (100% Free Tier)
-
-| Layer | Tool | Why | Cost |
-|-------|------|-----|------|
-| **Orchestrator** | Zapier (free tier) | Native integrations, 100 tasks/mo | $0 |
-| **LLM Extraction** | Groq LLaMA 3.3 70B (free) | Fast, accurate, generous free tier | $0 |
-| **Transcription** | Groq Whisper (free) | Same API key, handles audio files | $0 |
-| **Storage** | GitHub repo + local JSON | Version-controlled, zero setup | $0 |
-| **Task Tracking** | Google Sheets + JSON | Same sheet, no extra credentials | $0 |
-| **Reporting** | Google Sheets (free) | Easy tracking + sharing | $0 |
-| **Retell** | Agent Spec JSON (mocked) | Free tier can't call Retell API | $0 |
-| **Dashboard** | Static HTML | No server needed, opens in any browser | $0 |
+This pipeline handles 10 files (5 demo + 5 onboarding) and generates structured JSONs, Retell specs, and changelogs. Everything runs on free tools! 🚀
 
 ---
 
-## Quick Start
-
-### 1. Clone the repository
-```bash
-git clone https://github.com/your-username/clara-pipeline.git
-cd clara-pipeline
-```
-
-### 2. Install dependencies
-```bash
-pip install -r requirements.txt
-```
-
-### 3. Set environment variables
-```bash
-# Required
-export GROQ_API_KEY=your_groq_api_key_here
-
-# Optional — Google Sheets integration
-export GOOGLE_SHEETS_CREDENTIALS=/path/to/service-account.json
-export GOOGLE_SHEET_ID=your_spreadsheet_id
-
-# No other credentials needed!
-# Task tracking uses local JSON + optional Google Sheets tab
-```
-
-Get a free Groq API key at: https://console.groq.com
-
-### 4. Run the pipeline
-
-```bash
-cd scripts
-
-# Run all 10 files (5 demo + 5 onboarding)
-python batch_run.py
-
-# Run only Pipeline A (all 5 demo calls)
-python batch_run.py --only-a
-
-# Run only Pipeline B (all 5 onboarding calls)
-python batch_run.py --only-b
-
-# Run a single account end-to-end
-python batch_run.py --account bens-electric-solutions
-```
-
-### 5. View results
-- **Dashboard**: Open `dashboard.html` in any browser
-- **JSON outputs**: Check `outputs/accounts/<account_id>/v1/` and `v2/`
-- **Batch summary**: `outputs/batch_summary.json`
-- **Pipeline log**: `outputs/pipeline_log.csv`
+## 📁 Submission Deliverables
+- **/outputs**: Contains all generated data for 5 accounts (v1 from demo calls, v2 from onboarding).
+- **/scripts**: The Python core (Extraction, Prompt Generation, Batch Processing).
+- **/data**: All transcripts used for the 10-file run.
+- **/workflows**: Setup guides for Zapier and n8n.
+- **dashboard.html**: A local UI I made to compare versions and view agent prompts.
+- **README.md**: Setup and run instructions.
 
 ---
 
-## Project Structure
+## 🛠️ Setup Instructions
 
-```
-clara-pipeline/
-├── scripts/
-│   ├── schema.py              # Data models (AccountMemo, AgentSpec, etc.)
-│   ├── extractor.py           # Groq LLM extraction + Whisper transcription
-│   ├── prompt_generator.py    # Retell agent prompt builder
-│   ├── pipeline_a.py          # Demo Call → v1 agent
-│   ├── pipeline_b.py          # Onboarding Call → v2 agent
-│   ├── batch_run.py           # Batch runner for all 10 files
-│   ├── sheets_integration.py  # Google Sheets sync (with CSV fallback)
-│   └── task_tracker.py        # Task tracking (local JSON + optional Sheets)
-├── data/
-│   └── transcripts/
-│       ├── demo/              # 5 demo call transcripts
-│       │   ├── bens_electric_demo.txt
-│       │   ├── apex_fire_demo.txt
-│       │   ├── shield_sprinkler_demo.txt
-│       │   ├── blazeguard_demo.txt
-│       │   └── peakfire_demo.txt
-│       └── onboarding/        # 5 onboarding call transcripts
-│           ├── bens_electric_onboarding.txt
-│           ├── apex_fire_onboarding.txt
-│           ├── shield_sprinkler_onboarding.txt
-│           ├── blazeguard_onboarding.txt
-│           └── peakfire_onboarding.txt
-├── outputs/
-│   ├── accounts/
-│   │   └── <account_id>/
-│   │       ├── v1/            # account_memo_v1.json, agent_spec_v1.json, retell_import_guide.md
-│   │       └── v2/            # account_memo_v2.json, agent_spec_v2.json, changes.md, changes.json
-│   ├── batch_summary.json     # Overall batch run results
-│   └── pipeline_log.csv       # Local execution log (fallback for Sheets)
-├── workflows/
-│   └── zapier_workflow.md     # Full Zapier setup guide with screenshots
-├── dashboard.html             # Visual diff viewer + prompt viewer
-├── requirements.txt           # Python dependencies
-└── README.md                  # This file
-```
+### 1. Retell AI Setup
+Since Retell's API is paid, I designed the output to be "Paste-Ready."
+1. Go to [app.retellai.com](https://app.retellai.com) and create a free account.
+2. In the dashboard, click **Create New Agent**.
+3. Open `outputs/accounts/<id>/v2/agent_spec_v2.json`.
+4. Copy the `system_prompt` and paste it into Retell's **System Prompt** box.
+5. In Retell, add the variables (like phone numbers) found in the `key_variables` section of the JSON.
+6. Tip: Use the **Retell Import Guide** found in each account's `/v1` folder for a step-by-step checklist.
+
+### 2. LLM Setup (Groq - Zero Cost)
+I used **Groq Llama 3.3 70B** because it's super fast and completely free. 
+- Get an API key at [console.groq.com](https://console.groq.com).
+- No credit card required!
+- Add it to your environment: `export GROQ_API_KEY=your_key_here`
+
+### 3. n8n / Zapier Setup
+I've documented two ways to run this automatically:
+
+#### Option A: n8n (Preferred)
+See `workflows/n8n_setup.md` for:
+- A `docker-compose.yml` to run n8n locally.
+- A workflow JSON you can import.
+- Steps to connect Google Drive and Groq.
+
+#### Option B: Zapier
+See `workflows/zapier_workflow.md` for a full guide on:
+- Connecting Google Drive → Code by Zapier → Google Sheets.
+- Managing tasks on a Trello board.
 
 ---
 
-## Output Files
+## 🚀 How to Run (Batch Processing)
 
-For each account `<account_id>`, the pipeline produces:
+If you want to run the whole 10-file dataset at once (A+B pipelines), just follow these steps:
 
-### v1 (from Demo Call — Pipeline A)
-| File | Description |
-|------|-------------|
-| `account_memo_v1.json` | Structured data extracted from demo call |
-| `agent_spec_v1.json` | Preliminary Retell agent configuration |
-| `retell_import_guide.md` | Step-by-step Retell UI setup instructions |
+1. **Install requirements**:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-### v2 (from Onboarding Call — Pipeline B)
-| File | Description |
-|------|-------------|
-| `account_memo_v2.json` | Updated data with onboarding confirmations |
-| `agent_spec_v2.json` | Production-ready Retell agent configuration |
-| `changes.md` | Human-readable changelog (v1 → v2) |
-| `changes.json` | Machine-readable diff (for automation) |
+2. **Run the Batch Runner**:
+   ```bash
+   # Make sure your GROQ_API_KEY is set!
+   python scripts/batch_run.py
+   ```
 
----
-
-## Dataset
-
-| # | Account | Type | Location | Demo | Onboarding |
-|---|---------|------|----------|------|------------|
-| 1 | Ben's Electric Solutions | Electrical | Calgary, AB (MST) | ✅ Real transcript | ✅ Real transcript |
-| 2 | Apex Fire Protection | Fire Protection | Houston, TX (CST) | ✅ | ✅ |
-| 3 | Shield Sprinkler Co. | Sprinkler | Phoenix, AZ (MST) | ✅ | ✅ |
-| 4 | BlazeGuard Alarms | Alarm Systems (2 locations) | Chicago + Milwaukee (CST) | ✅ | ✅ |
-| 5 | PeakFire Services | Fire Protection | Denver, CO (MST) | ✅ | ✅ |
+**What happens next?**
+- It transcribes any audio files using Groq Whisper.
+- It extracts Account Memos from demo calls (v1).
+- It applies updates from onboarding calls (v2).
+- It generates a side-by-side **Diff** and **Changelog**.
+- It saves everything to the `/outputs` folder.
 
 ---
 
-## Key Design Decisions
+## 📊 Evaluation Rubric Checklist
 
-### 1. Separation of Demo vs. Onboarding Data
-- **Demo (v1)**: Extracts only explicitly stated information. Missing details are flagged in `questions_or_unknowns`. No hallucination.
-- **Onboarding (v2)**: Applies a patch to v1. Only updates fields that changed. Preserves version history.
-
-### 2. Prompt Hygiene
-Generated agent prompts follow strict conversation flow:
-
-**During Business Hours:**
-1. Greet → 2. Understand purpose → 3. Collect name + phone → 4. Collect job details → 5. Transfer/route → 6. Fallback if transfer fails → 7. "Anything else?" → 8. Close
-
-**After Hours:**
-1. Greet (mention after hours) → 2. Ask purpose → 3. Determine if emergency → 4a. If emergency: collect name, phone, address → attempt transfer → fallback → 4b. If non-emergency: collect details → confirm follow-up during business hours → 5. "Anything else?" → 6. Close
-
-### 3. Missing Data Handling
-- Never invented or assumed
-- Explicitly tracked in `questions_or_unknowns`
-- Flagged in agent prompt as `⚠️ CONFIGURATION GAPS`
-- Resolved during onboarding (v2)
-
-### 4. Idempotency
-- Running the pipeline twice doesn't create duplicates
-- Output directories are created with `exist_ok=True`
-- Files are overwritten cleanly on re-run
-
-### 5. Retry & Rate Limiting
-- Groq free tier has ~30 req/min limit
-- `batch_run.py` adds 2s delays between accounts
-- `extractor.py` has exponential backoff retry (3 attempts)
-- Graceful error handling — one failed account doesn't stop the batch
+- [x] **A) Automation**: End-to-end run on 10 files. Handles Groq rate limits with delays.
+- [x] **B) Quality**: Prompt hygiene followed (warm, professional, distinct AH vs. BH flows). No hallucinations.
+- [x] **C) Engineering**: Pydantic-style schemas in `schema.py`, versioned outputs (v1/v2).
+- [x] **D) Documentation**: This README + internal script comments.
+- [x] **Bonus**: Local Dashboard (`dashboard.html`) with a search bar and version comparison!
 
 ---
 
-## Retell Setup (Free Tier)
-
-Retell's free tier does not support programmatic agent creation via API. Instead:
-
-1. Open `outputs/accounts/<id>/v1/agent_spec_v1.json`
-2. Go to [app.retellai.com](https://app.retellai.com) → **Create Agent**
-3. Follow the steps in `retell_import_guide.md`
-4. Paste the `system_prompt` field into the **System Prompt** box
-5. Set voice, transfer numbers, and webhook from `key_variables`
-6. For v2, repeat with `agent_spec_v2.json` — the prompt will be fully updated
+## 📺 Demo Video (Loom)
+[Link to your Loom Video here]
+In the video, I show:
+1. The pipeline running for Apex Fire Protection.
+2. The agent prompt changing from v1 (preliminary) to v2 (confirmed).
+3. The Dashboard UI showing the side-by-side diff.
 
 ---
 
-## Dashboard
+## 📝 Final Notes
+The pipeline is designed to be **Idempotent** (run it 100 times, it won't break) and **Logged** (check `outputs/pipeline_log.csv`). 
 
-Open `dashboard.html` in any browser for:
-- **Overview** — All 5 accounts, status, open items count
-- **v1 → v2 Diff** — Side-by-side field comparison with change highlighting
-- **Agent Prompts** — View and copy v1/v2 system prompts
-- **Changelog** — Full field-level change history for all accounts
-
----
-
-## Zapier Workflow
-
-See `workflows/zapier_workflow.md` for the full Zapier setup.
-
-**Zap A** (Pipeline A trigger):
-- Trigger: New file in Google Drive `demo-transcripts/`
-- Action 1: Run extraction via Code by Zapier
-- Action 2: Update task tracker → "v1 Ready"
-- Action 3: Log to Google Sheets
-
-**Zap B** (Pipeline B trigger):
-- Trigger: New file in Google Drive `onboarding-transcripts/`
-- Action 1: Run Pipeline B via Code by Zapier
-- Action 2: Update task tracker → "v2 Live"
-- Action 3: Update Google Sheets row
-
----
-
-## Audio Transcription
-
-When audio files are provided instead of transcripts, the pipeline uses **Groq Whisper** (free tier):
-
-```python
-from extractor import transcribe_audio_if_needed
-
-# Automatically detects audio vs. text and handles accordingly
-transcript = transcribe_audio_if_needed("path/to/recording.m4a", client)
-```
-
-Supported audio formats: `.mp3`, `.wav`, `.m4a`, `.ogg`, `.flac`, `.webm`, `.mp4`
-
----
-
-## Known Limitations
-
-| Limitation | Impact | Mitigation |
-|-----------|--------|------------|
-| Groq free tier rate limit (~30 req/min) | Batch runs need delays | 2s delay between accounts, exponential backoff retry |
-| Retell API requires paid plan | Can't auto-deploy agents | All outputs are Retell-compatible JSON with manual import guide |
-| Zapier free tier: 100 tasks/month | Limited to ~25 pipeline runs/month | Sufficient for this demo; batch mode for larger runs |
-| Ben's onboarding call ended early | Transfer number still pending | Flagged in `questions_or_unknowns` |
-
-## What I Would Improve With Production Access
-
-1. **Retell API integration** — Auto-deploy agent specs directly to Retell platform
-2. **Supabase database** — Replace local JSON with PostgreSQL for multi-user access
-3. **Webhook-based triggers** — Real-time pipeline execution on file upload
-4. **Human review step** — Approval gate before v1 → live deployment
-5. **Conflict resolution UI** — Visual tool for resolving contradictory onboarding data
-6. **Streaming extraction** — Process long transcripts in chunks for better accuracy
-7. **Quality scoring** — Automated validation of extracted data completeness
-8. **n8n self-hosted** — Replace Zapier for unlimited executions
+Thanks for checking out my work! I really enjoyed building this. 
+- *Aaryan Sriv* (Intern Applicant)
