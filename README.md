@@ -83,11 +83,7 @@ If you want to run the whole 10-file dataset at once (A+B pipelines), just follo
 ---
 
 ## 📺 Demo Video (Loom)
-[Link to your Loom Video here]
-In the video, I show:
-1. The pipeline running for Apex Fire Protection.
-2. The agent prompt changing from v1 (preliminary) to v2 (confirmed).
-3. The Dashboard UI showing the side-by-side diff.
+(https://drive.google.com/drive/folders/1MrI-K38j6ptqGYZyRddrenlquO5KscqD?usp=sharing)
 
 ---
 
