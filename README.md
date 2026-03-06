@@ -82,7 +82,7 @@ If you want to run the whole 10-file dataset at once (A+B pipelines), just follo
 
 ---
 
-## 📺 Demo Video (Loom)
+## 📺 Demo Video
 (https://drive.google.com/drive/folders/1MrI-K38j6ptqGYZyRddrenlquO5KscqD?usp=sharing)
 
 ---
